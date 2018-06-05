@@ -1,0 +1,73 @@
+	<nav id="k9nav-inner" class="navbar navbar-expand-sm navbar-dark container-fluid" style="background-color: #d81212; color: white">	
+			<a class="navbar-brand" href="{U_INDEX}">
+				<img src="{T_IMAGES_PATH}site/accueil/home-interface.png" width="20" height="20" style=" position:relative; bottom:3px; left:14px">
+			</a>
+
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsMonAlternance" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarsMonAlternance">
+				
+				<ul class="navbar-nav w-100">
+
+						<li class="nav-item active dropdown dropdown-menu-right" >
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLinkCandidats" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Conseils aux candidats
+							</a>
+
+							<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkCandidats" style="width: 225px">
+								<a class="dropdown-item" href="{U_ALT_CANDIDATS_SALAIRES}">Les salaires en alternance</a>
+								<a class="dropdown-item" href="{U_ALT_CANDIDATS_CONTRATS}">Les contrats en alternance</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="{U_ALT_CANDIDATS_STAGES}">Les stages en entreprise</a>
+							</div>
+
+					
+						</li>
+						
+
+						<li class="nav-item active dropdown dropdown-menu-right">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLinkEntreprises" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Aides aux entreprises
+							</a>
+							
+							<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkEntreprises" style="width: 225px">
+								<a class="dropdown-item"  href="{U_ALT_ENTREPRISES_AIDE_AUX_TPE}">Aides aux TPE</a>
+				
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="{U_ALT_ENTREPRISES_AIDE_A_APPRENTISSAGE}">Aides à l'apprentissage</a>
+							</div>
+						
+						</li> 
+
+						<li class="nav-item  active">
+							<a class="nav-link" href="{U_INDEX}">Actualités</a>
+						</li>
+
+						<li class="nav-item  active">
+							<a class="nav-link" href="{U_ALT_CONTACT}">Contact</a>
+						</li>
+					
+						<!-- IF U_USER_ADMIN -->
+
+						<li class="nav-item dropdown active dropdown-menu-right" style="float:right">
+							<a class="nav-link dropdown-toggle" href="#" id="dropdownAlternance" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="{T_IMAGES_PATH}site/accueil/account.png" width="15" height="15"> {email}</a>
+							
+							<div class="dropdown-menu" aria-labelledby="dropdownAlternance">
+							<!-- IF S_USER_LOGGED_IN -->
+							<a class="dropdown-item" href="{U_ALT_PROFIL}">Mon profil</a>
+							<!-- IF U_USER_ADMIN --> <a class="dropdown-item" href="{U_USER_ADMIN}">Admin</a><!-- ENDIF -->
+
+							<a class="dropdown-item" href="{U_LOGIN_LOGOUT}">{L_LOGIN_LOGOUT}</a>
+							<!-- ELSE -->
+							<a class="dropdown-item" href="{U_LOGIN_LOGOUT}">{L_LOGIN_LOGOUT}</a>
+							<a class="dropdown-item" href="{U_REGISTER}">Inscription</a>
+							<!-- ENDIF -->
+							</div>
+						</li>
+						<!-- ENDIF -->
+				</ul>
+
+			</div>
+
+		</nav>

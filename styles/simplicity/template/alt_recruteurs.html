@@ -1,0 +1,180 @@
+<!-- DEFINE $NAV_SECTION = 'login' --><!-- INCLUDE overall_header.html -->
+
+<div class="container-fluid imageBackConnexion">
+        <div calss="row">
+    
+            <div class="col">
+                    <div class="card" style="width: 18rem; position: absolute; top:150px; left:50px; text-align: center">
+                       <br>
+                        <h2>Spécialiste des contrats en alternance</h2>
+                        <br>
+                    </div>
+                   
+    
+            </div>
+            <div class="col">
+    
+                <div class="container-fluid" >
+    
+                    <div class="row">
+                        <div class="container pt-4 mt-4 mb-4" style="background-color: rgba(185, 185, 185, 0.527); border: 1px solid #C0C0C0; border-radius: 10px; box-shadow: 3px 3px 6px 0 #A9A9A9; width: 450px">
+    
+                            <div class="container pt-4 mb-4" style="background-color: white; border: 1px solid #C0C0C0; border-radius: 10px; box-shadow: 3px 3px 6px 0 #A9A9A9; width: 400px">
+    
+                                <ul class="col-sm-12 clearfix" style="text-align: center">
+                                    <form action="{S_LOGIN_ACTION}" method="post" autocomplete="off" id="login" data-focus="<!-- IF S_ADMIN_AUTH -->{PASSWORD_CREDENTIAL}<!-- ELSE -->{USERNAME_CREDENTIAL}<!-- ENDIF -->">
+                                    
+                                    <div class="container">
+                                    
+                                        <div class="row justify-content-center mb-3">
+                                            <h2 class="login-title">Déjà inscrit ?</h2>
+                                        </div>
+                                        <div class="row justify-content-center">
+                                            
+                                            <!-- IF LOGIN_ERROR --><div class="error">{LOGIN_ERROR}</div><!-- ENDIF -->
+                                        </div>
+                                        <div class="row justify-content-center mb-3">
+    
+                                            <input type="search" tabindex="1"  class="form-control alt-form-image-arobase" style="width: 250px" id="username" name="username" aria-describedby="email" placeholder="Votre adresse email">
+                                            <!-- <input type="text" tabindex="1" name="{USERNAME_CREDENTIAL}" id="{USERNAME_CREDENTIAL}" size="25" value="{USERNAME}" class="inputbox autowidth" /> -->
+                                        </div>
+                                        <div class="row justify-content-center mb-2">
+                                            <input type="password" tabindex="2" id="password" name="password" style="width: 250px" class="form-control alt-form-image-cadena" aria-describedby="mot de passe" placeholder="Votre mot de passe"/>
+                                        </div>
+                                        
+    
+                                            <!-- IF CAPTCHA_TEMPLATE and S_CONFIRM_CODE -->
+                                                <!-- DEFINE $CAPTCHA_TAB_INDEX = 3 -->
+                                                <!-- INCLUDE {CAPTCHA_TEMPLATE} -->
+                                            <!-- ENDIF -->
+                                            <!-- IF S_DISPLAY_FULL_LOGIN -->
+                                        </div>
+                                        <div class="row justify-content-center mt-2">
+                                                <!-- IF S_AUTOLOGIN_ENABLED --><br><label for="autologin"><input type="checkbox" name="autologin" id="autologin" tabindex="4" checked="true"/> Rester connecté</label><!-- ENDIF -->
+                                                <!-- IF FALSE -->
+                                            <label for="viewonline"><input type="checkbox" name="viewonline" id="viewonline" tabindex="5" /> {L_HIDE_ME}</label>
+                                                <!-- ENDIF -->
+                                        </div>
+                                            <!-- ENDIF -->
+                                        <div class="row justify-content-center">
+                                            
+                                        
+                                            {S_HIDDEN_FIELDS}<button type="submit" name="login" tabindex="6" class="btn btn-danger" style="width: 250px">{L_LOGIN}</button>
+                                                    <!--<input type="submit" name="login" tabindex="6" value="{L_LOGIN}" class="button1" />-->
+                                                
+                                        </div>
+                                            <!-- IF S_DISPLAY_FULL_LOGIN and (U_SEND_PASSWORD or U_RESEND_ACTIVATION) -->
+                                                <!-- IF U_SEND_PASSWORD --><div class="row justify-content-center"><a href="{U_SEND_PASSWORD}">Mot de passe oublié ?</a></div><!-- ENDIF -->
+                                                <!-- IF U_RESEND_ACTIVATION --><div class="row justify-content-center"><a href="{U_RESEND_ACTIVATION}">{L_RESEND_ACTIVATION}</a></div><!-- ENDIF -->
+                                            <!-- ENDIF -->
+                                            </fieldset>
+                                    
+                                    
+                                        <!-- IF not S_ADMIN_AUTH and PROVIDER_TEMPLATE_FILE -->
+                                            <!-- INCLUDE {PROVIDER_TEMPLATE_FILE} -->
+                                        <!-- ENDIF -->
+                                        
+    
+    
+                                        <!-- IF not S_ADMIN_AUTH and S_REGISTER_ENABLED -->
+                                        <div class="panel">
+                                            <div class="inner">
+    
+                                                <div class="content">
+                                                    
+                                                    <hr class="dashed" />
+                                                    <b>Ou</b>
+                                                    <hr class="dashed" />
+                                                    
+                                                    <a href="{U_REGISTER}"><button type="button" class="btn btn-primary" style="width: 250px">Créer un compte</button></a>
+                                                
+                                                </div>
+    
+                                            </div>
+                                        </div>
+                                        <!-- ENDIF -->
+                                    
+                                    
+                                    
+                                    </div>
+    
+                                        
+    
+                                    </form>
+                                </ul>
+    
+                            </div>
+                        </div>
+                    </div>
+                </div>	
+            </div>
+        </div>
+    </div>
+    
+<div class="container-fluid">    
+    <h3>Investissez dans notre jeunesse</h3>
+
+    Poster une annonce vous permettra de trouver rapidement un candidat correspondant à vos attentes. 
+    <br>Mon Alternance est exclusivement dédié aux contrats de professionnalisation, d’apprentissage et stages en entreprise.
+    Par notre spécialisation, nous avons plusieurs appuis de poids comme les écoles, les entreprises, ainsi que les Grandes Institutions.
+    <br>Nous sommes la solution de recrutement en alternance.
+    <br>
+    <br><b>Nos services : </b>
+
+    <br>- Poster une annonce pendant 30 jours
+    <br>- Gérer le listing de toutes les candidatures dans votre espace personnel 
+    <br>- Sélectionnez votre candidat(e)
+    <br><br>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-4">
+                    <div class="card border-danger mb-3" style="max-width: 18rem;">
+                            <div class="card-header text-danger" style="text-align: center">    
+                                <h5 class="card-title" >Contrats de Professionnalisation / Apprentissage</h5>
+                            </div>  
+                            <div class="card-body" style="text-align: center">
+                                <div style="font-size: 2.6em">80€ HT </div>
+                                (l'annonce)
+                                <br><br>Publication de l'annonce sur une période d'un mois
+                                <br>
+                                <a href="#start_here"><button type="button" class="btn btn-outline-danger">Souscrire</button></a>
+                            </div>
+                        </div>
+            </div>
+            <div class="col-12 col-md-4">
+                    <div class="card border-primary mb-3" style="max-width: 18rem;">
+                            <div class="card-header text-primary" style="text-align: center">    
+                                <h5 class="card-title" >Stage <br>en<br> entreprise</h5>
+                            </div>  
+                            <div class="card-body" style="text-align: center">
+                                <div style="font-size: 2.6em">50€ HT </div>
+                                (l'annonce)
+                                <br><br>Publication de l'annonce sur une période d'un mois
+                                <br>
+                                <a href="#start_here"><button type="button" class="btn btn-outline-primary">Souscrire</button></a>
+                            </div>
+                        </div>
+            </div>
+            <div class="col-12 col-md-4">
+                    <div class="card border-warning mb-3" style="max-width: 18rem;">
+                            <div class="card-header text-warning" style="text-align: center">    
+                                <h5 class="card-title" >Devis<br><br> personnalisé</h5>
+                            </div>  
+                            <div class="card-body" style="text-align: center; font-size: 0.9em">
+                                Nos offres peuvent êtres postées simultanément sur une durée d'un an.
+                                <br><br>Obtenez un devis adapté à votre entreprise.
+                                <br>Nous vous recontacterons dans les plus brefs délais.
+                                <br>
+                                <a href="{U_ALT_CONTACT}"><button type="button" class="btn btn-outline-warning mt-2">Contactez-nous</button></a>
+                            </div>
+                        </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+ 
+    
+    
+    <br><br><br><br><br><br>
+    <!-- INCLUDE overall_footer.html -->

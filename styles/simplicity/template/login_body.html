@@ -1,0 +1,112 @@
+<!-- DEFINE $NAV_SECTION = 'login' --><!-- INCLUDE overall_header.html -->
+
+<div class="container-fluid imageBackConnexion">
+	<div calss="row">
+
+		<div class="col">
+
+				<img src="{T_IMAGES_PATH}site/accueil/citation.png" style="position: absolute; top:150px; left:50px" >
+
+		</div>
+		<div class="col">
+
+			<div class="container-fluid" >
+
+				<div class="row">
+					<div class="container pt-4 mt-4 mb-4" style="background-color: rgba(185, 185, 185, 0.527); border: 1px solid #C0C0C0; border-radius: 10px; box-shadow: 3px 3px 6px 0 #A9A9A9; max-width: 450px">
+
+						<div class="container pt-4 mb-4" style="background-color: white; border: 1px solid #C0C0C0; border-radius: 10px; box-shadow: 3px 3px 6px 0 #A9A9A9;">
+
+							<ul class="col-sm-12 clearfix" style="text-align: center">
+								<form action="{S_LOGIN_ACTION}" method="post" autocomplete="off" id="login" data-focus="<!-- IF S_ADMIN_AUTH -->{PASSWORD_CREDENTIAL}<!-- ELSE -->{USERNAME_CREDENTIAL}<!-- ENDIF -->">
+								
+								<div class="container">
+								
+									<div class="row justify-content-center mb-3">
+										<h2 class="login-title">Déjà inscrit ?</h2>
+									</div>
+									<div class="row justify-content-center">
+										<fieldset style="border: 0px" <!-- IF not S_CONFIRM_CODE -->class="fields1"<!-- ELSE -->class="fields2"<!-- ENDIF -->>
+										<!-- IF LOGIN_ERROR --><div class="error">{LOGIN_ERROR}</div><!-- ENDIF -->
+									</div>
+									<div class="row justify-content-center mb-3">
+
+										<input type="search" tabindex="1"  class="form-control alt-form-image-arobase" style="width: 250px" id="{USERNAME_CREDENTIAL}" name="{USERNAME_CREDENTIAL}" aria-describedby="email" placeholder="Votre adresse email">
+										<!-- <input type="text" tabindex="1" name="{USERNAME_CREDENTIAL}" id="{USERNAME_CREDENTIAL}" size="25" value="{USERNAME}" class="inputbox autowidth" /> -->
+									</div>
+									<div class="row justify-content-center mb-2">
+										<input type="password" tabindex="2" id="{PASSWORD_CREDENTIAL}" name="{PASSWORD_CREDENTIAL}" style="width: 250px" class="form-control alt-form-image-cadena" aria-describedby="mot de passe" placeholder="Votre mot de passe"/>
+									</div>
+									
+
+										<!-- IF CAPTCHA_TEMPLATE and S_CONFIRM_CODE -->
+											<!-- DEFINE $CAPTCHA_TAB_INDEX = 3 -->
+											<!-- INCLUDE {CAPTCHA_TEMPLATE} -->
+										<!-- ENDIF -->
+										<!-- IF S_DISPLAY_FULL_LOGIN -->
+									</div>
+									<div class="row justify-content-center mt-2">
+											<!-- IF S_AUTOLOGIN_ENABLED --><br><label for="autologin"><input type="checkbox" name="autologin" id="autologin" tabindex="4" checked="true"/> Rester connecté</label><!-- ENDIF -->
+											<!-- IF FALSE -->
+										<label for="viewonline"><input type="checkbox" name="viewonline" id="viewonline" tabindex="5" /> {L_HIDE_ME}</label>
+											<!-- ENDIF -->
+									</div>
+										<!-- ENDIF -->
+									<div class="row justify-content-center">
+										{S_LOGIN_REDIRECT}
+									
+										{S_HIDDEN_FIELDS}<button type="submit" name="login" tabindex="6" class="btn btn-danger" style="width: 200px">{L_LOGIN}</button>
+												<!--<input type="submit" name="login" tabindex="6" value="{L_LOGIN}" class="button1" />-->
+											
+									</div>
+										<!-- IF S_DISPLAY_FULL_LOGIN and (U_SEND_PASSWORD or U_RESEND_ACTIVATION) -->
+											<!-- IF U_SEND_PASSWORD --><div class="row justify-content-center"><a href="{U_SEND_PASSWORD}">Mot de passe oublié ?</a></div><!-- ENDIF -->
+											<!-- IF U_RESEND_ACTIVATION --><div class="row justify-content-center"><a href="{U_RESEND_ACTIVATION}">{L_RESEND_ACTIVATION}</a></div><!-- ENDIF -->
+										<!-- ENDIF -->
+										</fieldset>
+								
+								
+									<!-- IF not S_ADMIN_AUTH and PROVIDER_TEMPLATE_FILE -->
+										<!-- INCLUDE {PROVIDER_TEMPLATE_FILE} -->
+									<!-- ENDIF -->
+									
+
+
+									<!-- IF not S_ADMIN_AUTH and S_REGISTER_ENABLED -->
+									
+									<div class="row justify-content-center">
+										<div class="col">
+											<hr class="dashed" />
+											<b>Ou</b>
+											<hr class="dashed" />
+											<fieldset style="border: 0px">
+											<a href="{U_REGISTER}"><button type="button" class="btn btn-primary" style="width: 200px">Créer un compte</button></a>
+											</fieldset>
+										</div>
+									</div>
+									
+									<!-- ENDIF -->
+								
+								
+								
+								</div>
+
+									
+
+								</form>
+							</ul>
+
+						</div>
+					</div>
+				</div>
+			</div>	
+		</div>
+	</div>
+</div>
+
+
+
+
+
+<br><br><br><br><br><br>
+<!-- INCLUDE overall_footer.html -->

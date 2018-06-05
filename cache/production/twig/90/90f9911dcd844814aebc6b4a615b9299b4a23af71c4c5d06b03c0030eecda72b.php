@@ -1,0 +1,166 @@
+<?php
+
+/* alt_candidats_les_contrats_en_alternance.html */
+class __TwigTemplate_413d4119598872c6620efa0099e4f7af429ab6fcfaa8ee148e073c0c4eb890b9 extends Twig_Template
+{
+    public function __construct(Twig_Environment $env)
+    {
+        parent::__construct($env);
+
+        $this->parent = false;
+
+        $this->blocks = array(
+        );
+    }
+
+    protected function doDisplay(array $context, array $blocks = array())
+    {
+        // line 1
+        $location = "overall_header.html";
+        $namespace = false;
+        if (strpos($location, '@') === 0) {
+            $namespace = substr($location, 1, strpos($location, '/') - 1);
+            $previous_look_up_order = $this->env->getNamespaceLookUpOrder();
+            $this->env->setNamespaceLookUpOrder(array($namespace, '__main__'));
+        }
+        $this->loadTemplate("overall_header.html", "alt_candidats_les_contrats_en_alternance.html", 1)->display($context);
+        if ($namespace) {
+            $this->env->setNamespaceLookUpOrder($previous_look_up_order);
+        }
+        // line 2
+        echo "<div class=\"container-fluid\">
+        <div class=\"row\">
+            <div class=\"col\">
+                    <hr style=\"height: 1px; color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); width: 100%; border: none;\">
+            </div>
+            <div class=\"col-auto\" style=\"text-align: center; color: black; font-family:Helvetica;\">
+                <h1>LES CONTRATS EN ALTERNANCE</h1>
+                
+            </div>
+            <div class=\"col\">
+                    <hr style=\"height: 1px; color: rgb(0, 0, 0); background-color: rgb(0, 0, 0); width: 100%; border: none;\">
+            </div>
+        </div>
+        <div class=\"row justify-content-center m-2\">
+            <div class=\"col-12 col-sm-9 col-md-9 col-lg-9\" role=\"main\" style=\"border-style: solid; border-width: thin; border-color: grey\">
+        
+                <div style=\"text-align: center\">
+                        <img src=\"";
+        // line 19
+        echo ($context["T_IMAGES_PATH"] ?? null);
+        echo "site/pages/les-contrats-en-alternance.png\" class=\"mt-2\">
+                </div>
+                <div class=\"col-auto\" style=\"color: black; font-family:Helvetica;\">
+                <br><h2>Les Contrats en Alternance</h2> 
+                <p style=\"font-size : 16px\"><br>La <b>formation en Alternance</b> peut être mise en place grâce à deux types de <b>contrats</b> de travail : le contrat d'apprentissage et le contrat de professionnalisation.
+                <br>
+                Ils sont considérés comme contrat de travail et peuvent être signés sous forme soit de <b>CDD</b> (Contrat à Durée Déterminée) ou de <b>CDI</b> (Contrat à Durée Indéterminée).
+                <br><br>
+                Un petit nouveau fait son apparition : <b>Le Pacte</b>.
+                <br>Un contrat qui permet l’accès aux carrières de la fonction publique territoriale, de la fonction publique hospitalière et de la fonction de l'État.
+               <br>
+               <hr style=\"height: 2px; color: rgb(0, 0, 0); background-color: rgb(255, 0, 0); width: 100%; border: none;\">
+                <br><h2>Le contrat de professionnalisation et le contrat d’apprentissage</h2>
+                Vous trouverez ci-dessous le détail des deux contrats afin de choisir celui qui est le plus adapté à votre structure d’accueil.                <br><br>
+                <div style=\"text-align: center\"><img src=\"";
+        // line 33
+        echo ($context["T_IMAGES_PATH"] ?? null);
+        echo "site/pages/contrats_tableau.png\"></div>
+                <br><br>
+                <h2>Un “Pacte” pour intégrer la fonction publique via l’alternance</h2>
+                <br>
+                Nom de code : Pacte, ou parcours d'accès aux carrières de la fonction publique territoriale, de la fonction publique hospitalière et de la fonction de l'État.
+                <br>Le Pacte permet de se former en <b>alternance</b> aux métiers de la fonction publique de catégorie C (postes d'exécution).
+                <br>Originalité de ce programme : il ne privilégie pas les parcours exemplaires, mais plutôt les profils de jeunes, de 16 à 25 ans révolus, sans <b>qualification</b>, ou n'ayant pas atteint le niveau bac. Pendant un ou deux ans, ils alternent cours et <b>stages</b> sur le terrain.
+                <br><br>
+                La <b>formation</b>, qui est choisie en fonction du poste à occuper, permet d'acquérir un niveau <b>bac</b> au plus. Elle doit obligatoirement être inscrite au RMFPT (Répertoire des métiers de la fonction publique territoriale).
+                <br>La partie théorique est assurée par différents types d'établissement : CFA (centres de formation des apprentis), lycées professionnels, GRETA (organismes de formation continue de l'Éducation nationale), centres de la fonction publique…
+                <br>La <b>rémunération</b> mensuelle brute s'élève à 791 € pour les moins de 21 ans et à 1 007 € pour les plus de 21 ans.
+                <br>Au terme du <b>contrat</b>, et après qu'une commission a rendu un avis favorable, l'apprenti devient fonctionnaire titulaire à l'issue d'une vérification d'aptitude.
+                <br><br>
+                <h2>Comment choisir entre ces contrats proposés ?</h2>
+                <br>
+                - <b>Le Contrat d’apprentissage</b> a pour but d’obtenir un diplôme d'État (CAP, BAC, BTS, Licence, Master,…) ou un titre à finalité professionnelle inscrit au répertoire national des certifications professionnelles (RNCP), dont l’ensemble des titres professionnels relevant du ministère chargé de l’emploi.
+                <br>- <b>Le Contrat de professionnalisation</b> a pour but d'acquérir une qualification professionnelle reconnue (un diplôme ou un titre professionnel enregistré dans le Répertoire national des certifications professionnelles – RNCP) ; un certificat de qualification professionnelle (CQP) ; une qualification reconnue dans les classifications d’une convention collective nationale.
+                <br>- <b>Le Pacte</b>, ou parcours d'accès aux carrières de la fonction publique territoriale, de la fonction publique hospitalière et de la fonction de l'État. Le Pacte permet de se former en alternance aux métiers de la fonction publique de catégorie C (postes d'exécution).
+                 
+               <br><br>
+            </div>         
+            <div class=\"col-12 col-sm-3 col-md-3 col-lg-3\" role=\"complementary\" >
+                <script async src=\"//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js\"></script>
+                <!-- Test -->
+                <ins class=\"adsbygoogle\"
+                     style=\"display:block\"
+                     data-ad-client=\"ca-pub-5250430950478493\"
+                     data-ad-slot=\"4948269035\"
+                     data-ad-format=\"auto\"></ins>
+                <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+               
+    
+    <!--
+                <div class=\"card text-white m-1\"  style=\"min-width: 10rem; max-width: 20rem; background: rgb(27, 134, 235); text-align: center\">
+                    <div class=\"card-header\">DOSSIER SPECIAL<br>ALTERNANCE</div>
+                    <div class=\"card-body\" style=\"background: rgb(169, 207, 243);\">
+                        <p class=\"card-text\" style=\"color: black\">UN TREMPLIN<br>VERS<br>L'EMPLOI ?</p>
+                    </div>
+                    <div >
+                        <img src=\"";
+        // line 74
+        echo ($context["T_IMAGES_PATH"] ?? null);
+        echo "site/accueil/femme-tablette.jpg\" style=\"width: 100%\"> 
+                    </div>
+                    <div style=\"background: rgb(27, 134, 235); text-align: center\" class=\"mb-2\">
+                        TEMOIGNAGES
+                        <br>
+                        <input type=\"submit\" name=\"submit\" id=\"submit\" value=\"Voir le dossier\" class=\"btn btn-info default-submit-action\" />
+                    </div>
+                </div>
+    -->
+            </div>
+        </div>
+    </div>
+    ";
+        // line 86
+        $location = "overall_footer.html";
+        $namespace = false;
+        if (strpos($location, '@') === 0) {
+            $namespace = substr($location, 1, strpos($location, '/') - 1);
+            $previous_look_up_order = $this->env->getNamespaceLookUpOrder();
+            $this->env->setNamespaceLookUpOrder(array($namespace, '__main__'));
+        }
+        $this->loadTemplate("overall_footer.html", "alt_candidats_les_contrats_en_alternance.html", 86)->display($context);
+        if ($namespace) {
+            $this->env->setNamespaceLookUpOrder($previous_look_up_order);
+        }
+    }
+
+    public function getTemplateName()
+    {
+        return "alt_candidats_les_contrats_en_alternance.html";
+    }
+
+    public function isTraitable()
+    {
+        return false;
+    }
+
+    public function getDebugInfo()
+    {
+        return array (  126 => 86,  111 => 74,  67 => 33,  50 => 19,  31 => 2,  19 => 1,);
+    }
+
+    /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
+    public function getSource()
+    {
+        @trigger_error('The '.__METHOD__.' method is deprecated since version 1.27 and will be removed in 2.0. Use getSourceContext() instead.', E_USER_DEPRECATED);
+
+        return $this->getSourceContext()->getCode();
+    }
+
+    public function getSourceContext()
+    {
+        return new Twig_Source("", "alt_candidats_les_contrats_en_alternance.html", "");
+    }
+}

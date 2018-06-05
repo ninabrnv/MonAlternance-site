@@ -1,0 +1,91 @@
+		<!-- EVENT overall_footer_content_after -->
+
+	
+	<!-- EVENT overall_footer_page_body_after -->
+		
+
+	</div>
+
+
+
+	<footer role="contentinfo" class="page-footer bottom pt-3" style="background-color: #F5F3F5; border-top: 1px solid #dfdfdf; ">
+		<div class="container">
+			<div class="row" style="text-align: center">
+				<ul class="col-sm-12 clearfix" style="color: white">
+					<a href="{U_ALT_MENTIONS}" class="alt_lien_small">Mentions légales</a> 
+						| <a href="{U_ALT_CONTACT}" class="alt_lien_small">Recrutement</a>
+						| <a href="{U_ALT_CGU}" class="alt_lien_small">Conditions d'utilisation</a>
+						| <a href="{U_ALT_CONTACT}" class="alt_lien_small">Contactez-nous</a>
+					
+				</ul>
+			</div>
+			<div class="row">
+				<ul class="col-sm-12 clearfix" style="color: rgb(241, 241, 241); text-align: center; color:rgb(92, 92, 92); font-weight: 0.5em">
+					Copyright © 2018 - A/A
+				</ul>
+			</div>
+			
+        </div>
+    </footer>
+
+	
+	<!-- IF S_COOKIE_NOTICE -->
+		<script src="{T_ASSETS_PATH}/cookieconsent/cookieconsent.min.js?assets_version={T_ASSETS_VERSION}"></script>
+		<script>
+			window.addEventListener("load", function(){
+				window.cookieconsent.initialise({
+					"palette": {
+						"popup": {
+							"background": "#0F538A"
+						},
+						"button": {
+							"background": "#E5E5E5"
+						}
+					},
+					"theme": "classic",
+					"content": {
+						"message": "{LA_COOKIE_CONSENT_MSG}",
+						"dismiss": "{LA_COOKIE_CONSENT_OK}",
+						"link": "{LA_COOKIE_CONSENT_INFO}",
+						"href": "{LA_COOKIE_CONSENT_HREF}"
+					}
+				})});
+		</script>
+	<!-- ENDIF -->
+	
+	<!-- EVENT overall_footer_after -->
+	
+	<!-- IF S_PLUPLOAD --><!-- INCLUDE plupload.html --><!-- ENDIF -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	
+	
+
+<!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script> -->
+<script src="{T_ASSETS_PATH}/javascript/jquery-ui.min.js"></script>
+
+
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script> -->
+<script src="{T_ASSETS_PATH}/javascript/popper.min.js"></script>
+
+	<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script> -->
+	<script src="{T_ASSETS_PATH}/javascript/bootstrap.min.js"></script>
+
+	{$SCRIPTS}
+	
+	{ALT_SCRIPT_PAGE}
+
+
+	<script type="text/javascript" src="{T_ASSETS_PATH}/javascript/social-share-kit.js"></script>
+	<link rel="stylesheet" href="{T_ASSETS_PATH}/css/social-share-kit.css?v=1.0.15">
+
+
+	<div class="d-none d-md-block d-lg-block d-xl-block ssk-sticky ssk-right ssk-center ssk-lg">
+		<a href="https://www.facebook.com/monalternanceofficiel/" class="ssk ssk-facebook" data-ssk-ready="true"></a>
+
+		<a href="https://www.linkedin.com/company/mon-alternance" class="ssk ssk-linkedin" data-ssk-ready="true"></a>
+	</div>
+
+
+	<!-- EVENT overall_footer_body_after -->
+	</body>
+	</html>

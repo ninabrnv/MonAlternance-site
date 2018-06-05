@@ -1,0 +1,261 @@
+<!-- INCLUDE overall_header.html -->
+
+
+<h1 class="ml-2">Liste des comptes candidats</h1>
+
+<div class="container-fluid" > 
+    <div class="row" >  
+        <div class="col-3 col-md-2">
+          
+              <a class="nav-link active" href="{U_ALT_MODERATEUR}">Accueil admin</a>
+              <a class="nav-link" href="{U_ALT_ADMIN_ENTREPRISES}">Comptes entreprises</a>
+              <a class="nav-link" href="{U_ALT_ADMIN_CANDIDATS}"><b>Comptes candidats</b></a>
+              <a class="nav-link" href="{U_ALT_ADMIN_ADMINS}">Compte admins</a>
+              <a class="nav-link" href="{U_ALT_ADMIN_ANNONCES}">Annonces</a>
+              <a class="nav-link" href="{U_ALT_ADMIN_CANDIDATURES}">Dernières candidatures</a>
+              <a class="nav-link" href="{U_ALT_ADMIN_PAIEMENTS}">Derniers paiements</a>
+              <a class="nav-link" href="{U_ALT_ADMIN_CVTHEQUE}">CVthèque</a>
+              
+            
+        </div>
+        <div class="col-9 col-md-10" >
+      
+                <div class="card d-none d-md-block d-lg-block d-xl-block">
+                    <div class="card-header">
+                        Filtres sur la liste des candidats
+                    </div>
+                    <form id="formFiltreCandidat" class="p-2" method="post" action="{U_ALT_ADMIN_CANDIDATS}">
+                        <input type="hidden" name="action" value="filtreCandidat">
+                        <div class="form-row align-items-center">
+                            <div class="col-auto my-1">
+                                <label class="sr-only" for="filtrePrenom">Prénom</label>
+                                <input type="text" class="form-control mb-2" name="filtrePrenom" id="filtrePrenom" placeholder="Prénom" value="{filtrePrenom}">
+                            </div>
+                            <div class="col-auto my-1">
+                                <label class="sr-only" for="filtreNom">Nom</label>
+                                <input type="text" class="form-control mb-2" name="filtreNom" id="filtreNom" placeholder="Nom" value="{filtreNom}">
+                            </div>
+                            <div class="col-auto my-1">
+                                <label class="sr-only" for="filtreEmail">Email</label>
+                                <input type="text" class="form-control mb-2" name="filtreEmail" id="filtreEmail" placeholder="Email" value="{filtreEmail}">
+                            </div>
+                            <div class="col-auto my-1">
+                                <label class="sr-only" for="filtreTel">Tél</label>
+                                <input type="text" class="form-control mb-2" name="filtreTel" id="filtreTel" placeholder="Tél" value="{filtreTel}">
+                            </div>
+                            <div class="col-auto my-1">
+                                <label class="sr-only" for="filtreVille">Ville</label>
+                                <input type="text" class="form-control mb-2" name="filtreVille" id="filtreVille" placeholder="Ville" value="{filtreVille}">
+                            </div>
+                            <div class="col-auto my-1">
+                                <label class="sr-only" for="filtreVilleProche">Ville proche</label>
+                                <input type="text" class="form-control mb-2" name="filtreVilleProche" id="filtreVilleProche" placeholder="Ville proche" value="{filtreVilleProche}">
+                            </div>
+                            <div class="col-auto my-1">
+                                <label class="sr-only" for="filtreRegion">Région</label>
+                                <input type="text" class="form-control mb-2" name="filtreRegion" id="filtreRegion" placeholder="Région" value="{filtreRegion}">
+                            </div>
+                            <div class="col-auto my-1">
+                                <label class="sr-only" for="filtreDomaineActivite">Domaine activité</label>
+                                <input type="text" class="form-control mb-2" name="filtreDomaineActivite" id="filtreDomaineActivite" placeholder="Domaine activité" value="{filtreDomaineActivite}">
+                            </div>
+                            <div class="col-auto my-1">
+                                <label class="sr-only" for="filtreDomaineActiviteArtisanat">Domaine artisanat</label>
+                                <input type="text" class="form-control mb-2" name="filtreDomaineActiviteArtisanat" id="filtreDomaineActiviteArtisanat" placeholder="Domaine artisanat" value="{filtreDomaineActiviteArtisanat}">
+                            </div>
+                            <div class="col-auto my-1">
+                                <label class="sr-only" for="filtreNiveauEtude">Niveau étude</label>
+                                <input type="text" class="form-control mb-2" name="filtreNiveauEtude" id="filtreNiveauEtude" placeholder="Niveau d'étude" value="{filtreNiveauEtude}">
+                            </div>
+                            <div class="col-auto my-1">
+                                <label class="mr-sm-2" for="filtreAge">Age</label>
+                                <select class="custom-select mr-sm-2" name="filtreAge" id="filtreAge">
+                                <option selected>{filtreAge}</option>
+                                    <option></option>
+                                    <option>15</option>
+                                    <option>16</option>
+                                    <option>17</option>
+                                    <option>18</option>
+                                    <option>19</option>
+                                    <option>20</option>
+                                    <option>21</option>
+                                    <option>22</option>
+                                    <option>23</option>
+                                    <option>24</option>
+                                    <option>25</option>
+                                    <option>26 et +</option>
+                                </select>
+                            </div>
+                        
+                            <div class="col-auto my-1">
+                                <button type="submit" class="btn btn-primary">Rechercher</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <br>
+            <div style="text-align: center; color: green" id="messageOk"></div>
+            <div style="text-align: center; color: red" id="messageErreur"></div>
+
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButtonCandidats" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Actions pour la sélection
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" onclick="activerStatutAdmin();">Activer statut admin</a>
+                  <a class="dropdown-item" onclick="compteSupprimer();">Supprimer compte</a>
+                </div>
+              </div>
+              <br>
+
+              
+
+            <div class="container-fluid">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>&nbsp;#</th>
+                                    <th>Inscription</th>
+                                    <th>Prénom</th>
+                                    <th>Nom</th>
+                                    <th>Email</th>
+                                    <th>Tél</th>
+                                    <th>Age</th>
+                                    <th>Ville</th>
+                                    <th>Ville proche</th>
+                                    <th>Région</th>
+                                    <th>Domaine d'activité</th>
+                                    <th>Domaine artisanat</th>
+                                    <th>Niveau d'étude</th>
+                                    <th>Dernière école</th>
+                                    <th>CV</th>
+                                    
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- BEGIN candidats -->  
+                                    <tr>
+                                        <td><input class="ml-1" type="checkbox" class="form-check-input" name="listeSelection" id="{candidats.id}"></td>
+                                        <td nowrap>{candidats.date_creation}</td>
+                                        <td nowrap>{candidats.prenom}</td>
+                                        <td nowrap>{candidats.nom}</td>
+                                        <td nowrap>{candidats.email}</td>
+                                        <td nowrap>{candidats.tel_mobile}</td>
+                                        <td nowrap>{candidats.age}</td>
+                                        <td nowrap>{candidats.ville}</td>
+                                        <td nowrap>{candidats.ville_proche}</td>
+                                        <td nowrap>{candidats.region}</td>
+                                        <td nowrap>{candidats.domaine_principal}</td>
+                                        <td nowrap>{candidats.domaine_artisanat}</td>
+                                        <td nowrap>{candidats.niveau_etude}</td>
+                                        <td nowrap>{candidats.derniere_ecole}</td>
+                                        <td nowrap><a href="{candidats.cv_href}" target="_blank"><b>{candidats.cv_nom}</b></a></td>
+                                        
+                                    </tr>
+                                    <!-- END candidats --> 
+                                </tbody>
+                            </table>
+                        </div>
+               
+        </div>
+    </div>
+</div>
+
+<br><br><br>
+
+
+<script>
+
+    function activerStatutAdmin() {
+    
+    var action = "adminActiver";
+    var data_str = "";
+    
+    var list = getCheckedByName('listeSelection');
+    
+     for(var i = 0; i < list.length; i++) {
+        // alert('case cochées id : ' + list[i].id);
+         data_str += list[i].id + ',';
+     }
+    
+     $.ajax({
+         url : '{U_ALT_AJAX}',
+         type : 'POST', 
+    
+         data : 'action='+ action +'&elements=' + data_str, 
+         dataType : 'html',
+         success : function(code_html, statut){ 
+     
+            // alert(code_html);
+            document.getElementById("messageOk").innerHTML = 'Les comptes admins ont été activés! (<a href="{U_ALT_ADMIN_ADMINS}">Allez</a> sur la page des admins)'; 
+    
+         },
+     
+         error : function(resultat, statut, erreur){
+             //alert(erreur);
+             document.getElementById("messageErreur").innerHTML = 'Erreur : ' + erreur;
+             console.log(resultat);
+         },
+         complete : function(resultat, statut){
+     
+         }
+     
+     });
+    
+    }
+
+    function compteSupprimer() {
+    
+    var action = "compteSupprimer";
+    var data_str = "";
+    
+    var list = getCheckedByName('listeSelection');
+    
+     for(var i = 0; i < list.length; i++) {
+        // alert('case cochées id : ' + list[i].id);
+         data_str += list[i].id + ',';
+     }
+    
+     $.ajax({
+         url : '{U_ALT_AJAX}',
+         type : 'POST', 
+    
+         data : 'action='+ action +'&elements=' + data_str, 
+         dataType : 'html',
+         success : function(code_html, statut){ 
+     
+            // alert(code_html);
+            document.getElementById("messageOk").innerHTML = 'Les comptes ont été supprimés! (<a href="{U_ALT_ADMIN_CANDIDATS}">Actualisez</a> la page)'; 
+    
+         },
+     
+         error : function(resultat, statut, erreur){
+             //alert(erreur);
+             document.getElementById("messageErreur").innerHTML = 'Erreur : ' + erreur;
+             console.log(resultat);
+         },
+         complete : function(resultat, statut){
+     
+         }
+     
+     });
+    
+    }
+    
+    function getCheckedByName(name){
+     var chks = document.getElementsByName(name);
+     var results = [];
+     for(var i = 0; i < chks.length; i++){
+         chks[i].checked ? results.push(chks[i]):"";
+     }
+     return results;
+    }
+    
+    
+    </script>
+
+<!-- INCLUDE overall_footer.html -->
+
+
+
+                    

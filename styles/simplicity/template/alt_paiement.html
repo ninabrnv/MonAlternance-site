@@ -1,0 +1,70 @@
+<!-- INCLUDE overall_header.html -->
+
+<!-- IF CREATION_ANNONCE -->
+<div class="container pb-3" style="border: 1px solid rgba(0,0,0,.125);">
+        <h1>Etape par étape</h1>
+        <div class="progress">
+            <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:75%">
+            Etape 3/4 : Visualisez votre annonce
+            </div>
+        </div>
+    </div>
+    <br>
+<!-- ENDIF -->
+
+<div class="container p-3" style="border: 1px solid #C0C0C0; border-radius: 10px; box-shadow: 3px 3px 6px 0 #A9A9A9;">
+    <div class="row">
+            <div class="col">
+                <div class="container-fluid pl-0">
+                        <div class="row">
+                            <div class="col">
+                                <h5 class="modal-title" id="exampleModalLabel" style="color: #007bff">{annonce_titre}</h5>
+                                <div style="color: red;">{annonce_adresse_ville}</div>
+                            </div>
+                            <div class="col" style="text-align: right; padding: 0px">
+                                    <a href="#" style="cursor: pointer"><img src="{T_IMAGES_PATH}site/accueil/btn_favoris_noir_mini.png" title="Ajouter cette annonce dans vos favoris"></a>
+                                    <a href="#" style="cursor: pointer" data-dismiss="modal"><img src="{T_IMAGES_PATH}site/accueil/btn_facebook_noir_mini.png" title="Publier cette offre sur votre mur Facebook"></a>
+                                    <a href="#" style="cursor: pointer" title="postuler"><img src="{T_IMAGES_PATH}site/accueil/btn_postuler_noir_mini.png" title="Postuler à cette annonce"></a>
+                                </div>
+                        </div>
+                </div>
+                <div class="container-fluid pl-0">
+                    <div class="row">
+                        <div class="col">
+                            <hr style="height: 1px; color: rgb(172, 172, 172); background-color: rgb(177, 177, 177); width: 100%; border: none;">
+                            <b>Type de contrat :</b> {annonce_contrat_type}
+                            <br><b>Domaine :</b> {annonce_domaine} {annonce_domaine_artisanat}
+                            <br><b>Date de début :</b> {annonce_date_de_debut}
+                            <br><b>Durée :</b> {annonce_duree}
+                            <br>
+                            <br><b>Descriptif : </b>
+                            <br> 
+                            {annonce_description}
+                        </div>   
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+<br><br>
+<div class="container" style=" text-align: center; width: 450px">
+    <div class="row justify-content-md-center">
+        <div class="col-6 " >
+            <form name="formCredit" method="POST" action="{ACTION_FORM_MODIFIER_ANNONCE}">
+                <input type="hidden" name="action" value="editerAnnonce">
+                <input type="hidden" name="id" value="{annonce_id}">
+                <button type="submit" class="btn btn-outline-danger">Modifier l'annonce</button>
+            </form>
+        </div>
+        <div class="col-6 " >
+            <form name="formCredit" method="POST" action="{ACTION_FORM_VALIDER_ANNONCE}">
+                <input type="hidden" name="annonce_id" value="{annonce_id}">
+                <input type="hidden" name="action" value="payerAnnonce">
+                <button type="submit" class="btn btn-outline-success">Valider l'annonce</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+    <br><br><br><br><br><br>
+    <!-- INCLUDE overall_footer.html -->

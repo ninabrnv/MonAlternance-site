@@ -1,0 +1,113 @@
+<!-- INCLUDE overall_header.html -->
+
+
+
+<div class="container-fluid">
+        <div calss="row">
+    
+            <div class="col">
+    
+            </div>
+            <div class="col">
+    
+                <div class="container-fluid imageBackRegister" >
+    
+                    <div class="row">
+                        <div class="container pt-4 mt-4 mb-4" style="background-color: rgba(185, 185, 185, 0.527); border: 1px solid #C0C0C0; border-radius: 10px; box-shadow: 3px 3px 6px 0 #A9A9A9; max-width: 650px">
+    
+                            <div class="container pt-4 mb-4" style="background-color: white; border: 1px solid #C0C0C0; border-radius: 10px; box-shadow: 3px 3px 6px 0 #A9A9A9;">
+    
+                                <ul class="col clearfix" >
+                                    <!-- DEBUT CONTENU -->
+                                    
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <div style="color: green; text-align: center">{messageMail}</div>
+                                                    <h1>Contactez-nous</h1>
+                                                    <hr>
+                                                    <form id="contacteznous" method="post" action="{FORM_CONTACT}">
+                                                    <input type="hidden" name="action" value="sendmail">
+                                                    <br>Je suis :
+                                                    <br>
+                                                    <div class="container">
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <label class="form-check-label">
+                                                                    <input class="form-check-input" type="radio" name="type_compte" id="typeCompteCandidat" value="candidat" checked>
+                                                                    <b>Candidat</b>
+                                                                </label>
+                                                            </div>
+                                                            <div class="col">
+                                                               
+                                                                <label class="form-check-label">
+                                                                    <input class="form-check-input" type="radio" name="type_compte" id="typeCompteSociete" value="societe" >
+                                                                    <b>Entreprise</b>
+                                                                </label>
+                                                            </div>
+                                                            <div class="col">
+                                                                  
+                                                                            <label class="form-check-label">
+                                                                                <input class="form-check-input" type="radio" name="type_compte" id="typeCompteEcole" value="ecole" >
+                                                                                <b>Ecole</b>
+                                                                            </label>
+                                                                          
+                                                            </div>
+                                                            <div class="col">
+                                                                  
+                                                                            <label class="form-check-label">
+                                                                                <input class="form-check-input" type="radio" name="type_compte" id="typeCompteAutre" value="autre" >
+                                                                                <b>Autre</b>
+                                                                            </label>
+                                                                        
+                                                            </div>
+                                                            
+                                                        </div>
+                                                    </div>
+                                                    <br>
+                                                    
+                                                    <label>Prénom :</label> *
+                                                    <input type="text" class="form-control" tabindex="1" name="prenom" id="prenom" value="{prenom}" />
+
+                                                    <label>Nom :</label> *
+                                                    <input type="text" class="form-control" tabindex="2" name="nom" id="nom" value="{nom}" />
+                  
+                                                    <label>Email :</label> *
+                                                    <input type="text" class="form-control" tabindex="3" name="email" id="email" value="{email}" />
+                                                    
+                                                    <label>Numéro de téléphone :</label>
+                                                    <input type="text" class="form-control" tabindex="4" name="tel" id="tel" value="{tel}" />
+                                                    
+
+                                                    <label>Ville :</label> *
+                                                    <input type="text" class="form-control" tabindex="5" name="ville" id="ville" value="{ville}" />	
+                                                   
+                                                    <label>Objet du message :</label> *
+                                                    <input type="text" class="form-control" tabindex="6" name="objet" id="objet" value="" />	
+                                                    
+                                         
+                                                    <div class="form-group">
+                                                        <label for="contenu">Commentaire :</label> *
+                                                        <textarea class="form-control" tabindex="7" rows="5" id="contenu" name="contenu"></textarea>
+                                                     </div>
+
+
+                                                     <input type="submit" tabindex="8" name="submit" id="submit" value="Envoyer" class="btn btn-success default-submit-action" />
+                                                     </form>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    <!-- FIN CONTENU -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>	
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="alt_lien_sous_titre">{email_enable}</div> -->
+
+<!-- INCLUDE overall_footer.html -->

@@ -1,0 +1,95 @@
+<!-- INCLUDE overall_header.html -->
+
+<div class="container pb-3" style="border: 1px solid rgba(0,0,0,.125);">
+    <h1>Etape par étape</h1>
+    <div class="progress">
+        <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width:50%">
+        Etape 1/2 : Définissez votre besoin
+        </div>
+    </div>
+</div>
+<br>
+<div class="container" style="border: 1px solid rgba(0,0,0,.125);">    
+    <h1>Définissez votre besoin</h1>
+    - Accès libre à la CVthèque pendant la durée choisie
+    <br>- Sélectionnez des CV et mettez les dans "Mes CV" afin de les garder en mémoire
+    <br>- Filtrage des candidats selon vos souhaits
+    <br><br>
+    <div class="container" style=" text-align: center;">
+        <div class="row justify-content-md-center">
+            <div class="col-12 col-md-3">
+                <form name="formCredit15jours" method="POST" action="{ACTION_FORM_CV_OFFRES}">
+                    <input type="hidden" name="action" value="cvthequeAdhesion">
+                    <input type="hidden" name="duree" value="15jours">
+                    <div class="card border-danger mb-3" style="max-width: 18rem;">
+                        <div class="card-header text-danger" style="text-align: center">    
+                            <h5 class="card-title" >Accès 15 jours</h5>
+                        </div>  
+                        <div class="card-body" style="text-align: center">
+                            <div style="font-size: 2.6em">200€ HT </div>
+                           
+                            <br>
+                            <button type="submit" class="btn btn-outline-danger">Souscrire</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-12  col-md-3">
+                    <form name="formCredit1mois" method="POST" action="{ACTION_FORM_CV_OFFRES}">
+                            <input type="hidden" name="action" value="cvthequeAdhesion">
+                        <input type="hidden" name="duree" value="1mois">
+                       <div class="card border-primary mb-3" style="max-width: 18rem;">
+                           <div class="card-header text-primary" style="text-align: center">    
+                               <h5 class="card-title" >Accès 1 mois</h5>
+                           </div>  
+                           <div class="card-body" style="text-align: center">
+                               <div style="font-size: 2.6em">380€ HT </div>
+                              
+                               <br>
+                               <button type="submit" class="btn btn-outline-primary">Souscrire</button>
+                           </div>
+                       </div>
+                   </form>
+               </div>
+               <div class="col-12 col-md-3">
+                <form name="formCredit" method="POST" action="{ACTION_FORM_CV_OFFRES}">
+                        <input type="hidden" name="action" value="cvthequeAdhesion">
+                    <input type="hidden" name="duree" value="3mois">
+                    <div class="card border-success mb-3" style="max-width: 18rem;">
+                        <div class="card-header text-success" style="text-align: center">    
+                            <h5 class="card-title" >Accès 3 mois</h5>
+                        </div>  
+                        <div class="card-body" style="text-align: center">
+                            <div style="font-size: 2.6em">900€ HT </div>
+                           
+                            <br>
+                            <button type="submit" class="btn btn-outline-success">Souscrire</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+               <div class="col-12 col-md-3">
+                    <form name="formContact" method="POST" action="{U_ALT_CONTACT}">
+                        <div class="card border-warning mb-3" style="max-width: 18rem;">
+                            <div class="card-header text-warning" style="text-align: center">    
+                                <h5 class="card-title" >Devis personnalisé </h5>
+                            </div>  
+                            <div class="card-body" style="text-align: center; font-size: 0.8em">
+                                Obtenez un devis adapté à votre entreprise
+                                <br>Nous vous recontacterons dans les plus brefs délais.
+                             
+                                <button type="submit" class="btn btn-outline-warning mt-2">Contactez-nous</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+        </div>
+       
+    </div>
+</div>
+
+ 
+    
+    
+    <br><br><br><br><br><br>
+    <!-- INCLUDE overall_footer.html -->

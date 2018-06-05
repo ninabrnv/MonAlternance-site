@@ -1,0 +1,75 @@
+
+<!-- INCLUDE overall_header.html -->
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-sm-9 col-md-9 col-lg-9">
+
+
+                <!-- BEGIN postrow -->
+                    
+                  
+                    <div id="p{postrow.POST_ID}" class="post has-profile <!-- IF postrow.S_ROW_COUNT is odd -->bg1<!-- ELSE -->bg2<!-- ENDIF --><!-- IF postrow.S_UNREAD_POST --> unreadpost<!-- ENDIF --><!-- IF postrow.S_POST_REPORTED --> reported<!-- ENDIF --><!-- IF postrow.S_POST_DELETED --> deleted<!-- ENDIF --><!-- IF postrow.S_ONLINE and not postrow.S_POST_HIDDEN --> online<!-- ENDIF --><!-- IF postrow.POSTER_WARNINGS --> warned<!-- ENDIF -->">
+                        <div class="inner">
+
+
+                        <div class="postbody">
+                        
+                        
+                            <!-- EVENT viewtopic_body_postrow_post_details_before -->
+                            <p class="author">
+                                <!-- <span class="responsive-hide">Par <strong>{postrow.POST_AUTHOR_FULL}</strong>, </span>{postrow.POST_DATE} -->
+                            </p>
+                            <!-- EVENT viewtopic_body_postrow_post_details_after -->
+
+                            
+
+                            <!-- IF postrow.S_POST_REPORTED -->
+                            <p class="post-notice reported">
+                                <a href="{postrow.U_MCP_REPORT}"><strong>{L_POST_REPORTED}</strong></a>
+                            </p>
+                            <!-- ENDIF -->
+
+                            <div class="content">{postrow.MESSAGE}</div>
+
+                            <!-- IF postrow.S_HAS_ATTACHMENTS -->
+                                <dl class="attachbox">
+                                    <dt>
+                                        {L_ATTACHMENTS}
+                                    </dt>
+                                    <!-- BEGIN attachment -->
+                                        <dd>{postrow.attachment.DISPLAY_ATTACHMENT}</dd>
+                                    <!-- END attachment -->
+                                </dl>
+                            <!-- ENDIF -->
+
+                            </div>
+
+                        </div>
+
+                    
+                    </div>
+
+                    
+                <!-- END postrow -->
+
+
+
+        </div>
+        <div class="col-12 col-sm-3 col-md-3 col-lg-3">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- Test -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-5250430950478493"
+                 data-ad-slot="4948269035"
+                 data-ad-format="auto"></ins>
+            <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
+</div>
+
+<!-- INCLUDE overall_footer.html -->

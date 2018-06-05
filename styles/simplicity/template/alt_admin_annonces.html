@@ -1,0 +1,376 @@
+<!-- INCLUDE overall_header.html -->
+
+<center><div style="color:green">{MESSAGE}</div></center>
+
+<h1 class="ml-2">Liste des 100 dernières annonces</h1>
+
+<div class="container-fluid" > 
+    <div class="row" >  
+        <div class="col-3 col-md-2">
+          
+              <a class="nav-link active" href="{U_ALT_MODERATEUR}">Accueil admin</a>
+              <a class="nav-link" href="{U_ALT_ADMIN_ENTREPRISES}">Comptes entreprises</a>
+              <a class="nav-link" href="{U_ALT_ADMIN_CANDIDATS}">Comptes candidats</a>
+              <a class="nav-link" href="{U_ALT_ADMIN_ADMINS}">Compte admins</a>
+              <a class="nav-link" href="{U_ALT_ADMIN_ANNONCES}"><b>Annonces</b></a>
+              <a class="nav-link" href="{U_ALT_ADMIN_CANDIDATURES}">Dernières candidatures</a>
+              <a class="nav-link" href="{U_ALT_ADMIN_PAIEMENTS}">Derniers paiements</a>
+              <a class="nav-link" href="{U_ALT_ADMIN_CVTHEQUE}">CVthèque</a>
+              
+            
+        </div>
+        <div class="col-9 col-md-10" >
+                <div class="card d-none d-md-block d-lg-block d-xl-block">
+                        <div class="card-header">
+                            Filtres sur la liste des entreprises
+                        </div>
+                        <form id="formFiltreAnnonces" class="p-2" method="post" action="{U_ALT_ADMIN_ANNONCES}">
+                            <input type="hidden" name="action" value="filtreAnnonces">
+                            <input type="hidden" name="filtreCandidat" value="{FILTRE_CANDIDAT}">
+                            <div class="form-row align-items-center">
+                                <div class="col-auto my-1">
+                                        <label class="sr-only" for="filtreRef">Réf</label>
+                                        <input type="text" class="form-control mb-2" name="filtreRef" id="filtreRef" placeholder="Réf" value="{filtreRef}">
+                                    </div>
+                                <div class="col-auto my-1">
+                                    <label class="sr-only" for="filtreTitre">Titre</label>
+                                    <input type="text" class="form-control mb-2" name="filtreTitre" id="filtreTitre" placeholder="Titre" value="{filtreTitre}">
+                                </div>
+                                <div class="col-auto my-1">
+                                    <label class="sr-only" for="filtreStatut">Statut</label>
+                                    <input type="text" class="form-control mb-2" name="filtreStatut" id="filtreStatut" placeholder="Statut" value="{filtreStatut}">
+                                </div>
+                               
+                                <div class="col-auto my-1">
+                                    <label class="sr-only" for="filtreTypeContrat">Type contrat</label>
+                                    <input type="text" class="form-control mb-2" name="filtreTypeContrat" id="filtreTypeContrat" placeholder="Type contrat" value="{filtreTypeContrat}">
+                                </div>
+                                
+                          
+                                <div class="col-auto my-1">
+                                    <label class="sr-only" for="filtreDomaineActivite">Domaine activité</label>
+                                    <input type="text" class="form-control mb-2" name="filtreDomaineActivite" id="filtreDomaineActivite" placeholder="Domaine activité" value="{filtreDomaineActivite}">
+                                </div>
+                                <div class="col-auto my-1">
+                                        <label class="sr-only" for="filtreDomaineArtisanat">Domaine artisanat</label>
+                                        <input type="text" class="form-control mb-2" name="filtreDomaineArtisanat" id="filtreDomaineArtisanat" placeholder="Domaine artisanat" value="{filtreDomaineArtisanat}">
+                                    </div>
+
+                             
+        
+                                <div class="col-auto my-1">
+                                        <label class="sr-only" for="filtreRegion">Région</label>
+                                        <input type="text" class="form-control mb-2" name="filtreRegion" id="filtreRegion" placeholder="Région" value="{filtreRegion}">
+                                    </div>
+                             
+                                    <div class="col-auto my-1">
+                                <label class="sr-only" for="filtreVille">Ville</label>
+                                 <input type="text" class="form-control mb-2" name="filtreVille" id="filtreVille" placeholder="Ville" value="{filtreVille}">
+                              </div>
+                              
+                              <div class="col-auto my-1">
+                                    <label class="sr-only" for="filtreEntreprise">Entreprise</label>
+                                    <input type="text" class="form-control mb-2" name="filtreEntreprise" id="filtreEntreprise" placeholder="Entreprise" value="{filtreEntreprise}">
+                                </div>
+                                <div class="col-auto my-1">
+                                    <label class="sr-only" for="filtreContact">Contact</label>
+                                    <input type="text" class="form-control mb-2" name="filtreContact" id="filtreContact" placeholder="Contact" value="{filtreContact}">
+                                </div>
+                                <div class="col-auto my-1">
+                                        <label class="sr-only" for="filtrePaye">Payé</label>
+                                        <input type="text" class="form-control mb-2" name="filtrePaye" id="filtrePaye" placeholder="Payé" value="{filtrePaye}">
+                                    </div>
+                            
+                                <div class="col-auto my-1">
+                                    <button type="submit" class="btn btn-primary">Rechercher</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <br>
+                <div style="text-align: center; color: green" id="messageOk"></div>
+                <div style="text-align: center; color: red" id="messageErreur"></div>
+    
+                <div class="container">
+                    <div class="row">
+                        <div class="col col-md-4">
+                            <div class="form-group">
+                                <form name="formCreationAnnonce" method="post" action="{LIEN_CREATION_ANNONCE_POUR_COMPTE}">
+                                 <input type="hidden" name="pourLeCompteDe" id="pourLeCompteDe" value="0">
+                                 <label for="selectionCompteEntreprise">Créer une annonce pour le compte de :</label>
+                                 <select class="form-control" id="selectEntreprise" onChange="submitCreationAnnonce();">
+                                    <option value="0"></option>
+                                     <!-- BEGIN liste_entreprises --> 
+                                   <option value="{liste_entreprises.id}">{liste_entreprises.societe_nom}</option>
+                                   <!-- END liste_entreprises -->  
+                                 </select>
+                                 </form>
+                            </div>
+                        </div>
+                        <div class="col col-md-5">
+                            <div class="form-group">
+                                <form name="formPostulerAvecLeCandidat" method="post" action="{LIEN_POSTULER_AVEC_LE_CANDIDAT}">
+                                 <input type="hidden" name="action" value="postulerPourLeCandidat">
+                                 <input type="hidden" name="candidatSelectionne" id="candidatSelectionne" value="0">
+                                 <input type="hidden" name="annoncesselectionnees" id="annoncesselectionnees" value="">
+                                 <input type="hidden" name="filtreCandidat" value="{FILTRE_CANDIDAT}">
+
+                                 <label for="selectionCompteEntreprise">Postuler sur les annonces sélectionnées avec le candidat :</label>
+                                 <select class="form-control" id="selectCandidat" onChange="submitPostulerAvecCandidat();">
+                                    <option value="0"></option>
+                                     <!-- BEGIN liste_candidats --> 
+                                   <option value="{liste_candidats.user_id}">{liste_candidats.candidat_nom_prenom}</option>
+                                   <!-- END liste_candidats -->  
+                                 </select>
+                                 </form>
+                                 <br>
+                                 <form name="formFiltreCandidat" method="post" action="{LIEN_FILTRE_CANDIDAT}">
+                                 (Filtrer le nom ou prénom : <input type="text" name="filtreCandidat" value="{FILTRE_CANDIDAT}">
+                                 <input type="submit" name="changerFiltreCandidat" value="ok"> )
+                                 </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="dropdown">
+                                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButtonAnnonces" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Actions pour la sélection
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" onclick="annonceStatutActiver();">Statut : "Active"</a>
+                                    <a class="dropdown-item" onclick="annonceStatutDesactive();">Statut : "Désactivée</a>
+                                    <a class="dropdown-item" onclick="annonceStatutSupprimee();">Statut : "Supprimée"</a>
+                                    
+                                </div>
+                            </div>
+                           
+                            
+                        </div>
+                    </div>
+                </div>
+                  <br>
+
+                  
+                  <a href="#" onClick="selectAll()" /> Tout sélectionner</a>
+                  <br/>
+                  <script language="JavaScript">
+                       function selectAll() {
+                            var items = document.getElementsByName('listeSelection');
+                            for (var i = 0; i < items.length; i++) {
+                                if (items[i].type == 'checkbox')
+                                    items[i].checked = true;
+                            }
+                        }
+                    </script>
+
+                <div class="container-fluid">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>&nbsp;#</th>
+                                    <th>Date création</th>
+                                    <th>Réf</th>
+                                    <th>Titre</th>
+                                    <th>Statut</th>
+                                    <th>Contrat</th>
+                                    <th>Domaine</th>
+                                    <th>Artisanat</th>
+                                    <th>Region</th>
+                                    <th>Ville</th>
+                                    
+                                    <th>Début</th>
+                                    <th>Durée</th>
+                                    <th>Client nom</th>
+                                    <th>Client contact</th>
+                                 
+                                    
+                                    
+                                    <th>Date publication</th>
+                                    <th>Payé</th>
+                                    <th>Date paiement</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- BEGIN annonces -->  
+                                    <tr>
+                                        <td><input class="ml-1" type="checkbox" class="form-check-input" name="listeSelection" id="{annonces.id}"></td>
+                                        <td nowrap>{annonces.date_creation}</td>        
+                                        <td nowrap>{annonces.ref}</td>
+                                        <td nowrap><a href="{annonces.lien_annonce}" target="_blank">{annonces.titre}</a></td>
+                                        <td nowrap style="color: {annonces.statut_color}">{annonces.statut}</td> 
+                                        <td nowrap>{annonces.contrat_type}</td>
+                                        <td nowrap>{annonces.domaine}</td>
+                                        <td nowrap>{annonces.domaine_artisanat}</td>
+                                        <td nowrap>{annonces.region}</td>
+                                        <td nowrap>{annonces.ville}</td>
+                                        
+                                        <td nowrap>{annonces.date_debut}</td>
+                                        <td nowrap>{annonces.duree}</td>
+                                        <td nowrap>{annonces.client_nom}</td>
+                                        <td nowrap>{annonces.client_contact}</td>
+                                   
+                                        
+                                        
+                                        <td nowrap>{annonces.date_publication}</td>        
+                                        <td nowrap>{annonces.paye}</td>        
+                                        <td nowrap>{annonces.date_paiement}</td>  
+                                        <td nowrap><a href="javascript:alert('{annonces.description}')" title="{annonces.description_court}">description</a></td>                     
+                                    </tr>
+                                    <!-- END annonces --> 
+                                </tbody>
+                            </table>
+                       
+                    </div>
+        </div>
+    </div>
+</div>
+
+<br><br><br>
+
+
+<script>
+
+        function submitCreationAnnonce() {
+            document.formCreationAnnonce.pourLeCompteDe.value = document.getElementById('selectEntreprise').value;
+            document.formCreationAnnonce.submit();
+        }
+
+        function submitPostulerAvecCandidat() {
+
+            var data_str = "";
+            var list = getCheckedByName('listeSelection');
+            
+            for(var i = 0; i < list.length; i++) {
+                // alert('case cochées id : ' + list[i].id);
+                data_str += list[i].id + ',';
+            }
+
+            document.formPostulerAvecLeCandidat.candidatSelectionne.value = document.getElementById('selectCandidat').value;
+            document.formPostulerAvecLeCandidat.annoncesselectionnees.value = data_str;
+
+            document.formPostulerAvecLeCandidat.submit();
+        }
+
+        function annonceStatutDesactive() {
+        
+            var action = "annonceDesactiver";
+            var data_str = "";
+            var list = getCheckedByName('listeSelection');
+            
+            for(var i = 0; i < list.length; i++) {
+                // alert('case cochées id : ' + list[i].id);
+                data_str += list[i].id + ',';
+            }
+            
+            $.ajax({
+                url : '{U_ALT_AJAX}',
+                type : 'POST', 
+            
+                data : 'action='+ action +'&elements=' + data_str, 
+                dataType : 'html',
+                success : function(code_html, statut){ 
+                    // alert(code_html);
+                    document.getElementById("messageOk").innerHTML = 'Les annonces ont été désactivées! (<a href="{U_ALT_ADMIN_ANNONCES}">Actualisez</a> la page)'; 
+                },
+                error : function(resultat, statut, erreur){
+                    //alert(erreur);
+                    document.getElementById("messageErreur").innerHTML = 'Erreur : ' + erreur;
+                    console.log(resultat);
+                },
+                complete : function(resultat, statut){
+            
+                }
+            
+            });
+        
+        }
+
+        function annonceStatutActiver() {
+        
+            var action = "annonceActiver";
+            var data_str = "";
+            var list = getCheckedByName('listeSelection');
+            
+            for(var i = 0; i < list.length; i++) {
+                // alert('case cochées id : ' + list[i].id);
+                data_str += list[i].id + ',';
+            }
+            
+            $.ajax({
+                url : '{U_ALT_AJAX}',
+                type : 'POST', 
+            
+                data : 'action='+ action +'&elements=' + data_str, 
+                dataType : 'html',
+                success : function(code_html, statut){ 
+                    // alert(code_html);
+                    document.getElementById("messageOk").innerHTML = 'Les annonces ont été activées! (<a href="{U_ALT_ADMIN_ANNONCES}">Actualisez</a> la page)'; 
+                },
+                error : function(resultat, statut, erreur){
+                    //alert(erreur);
+                    document.getElementById("messageErreur").innerHTML = 'Erreur : ' + erreur;
+                    console.log(resultat);
+                },
+                complete : function(resultat, statut){
+            
+                }
+            
+            });
+        
+        }
+
+        function annonceStatutSupprimee() {
+        
+            var action = "annonceSupprimer";
+            var data_str = "";
+            var list = getCheckedByName('listeSelection');
+            
+            for(var i = 0; i < list.length; i++) {
+                // alert('case cochées id : ' + list[i].id);
+                data_str += list[i].id + ',';
+            }
+            
+            $.ajax({
+                url : '{U_ALT_AJAX}',
+                type : 'POST', 
+            
+                data : 'action='+ action +'&elements=' + data_str, 
+                dataType : 'html',
+                success : function(code_html, statut){ 
+                    // alert(code_html);
+                    document.getElementById("messageOk").innerHTML = 'Les annonces ont été supprimées! (<a href="{U_ALT_ADMIN_ANNONCES}">Actualisez</a> la page)'; 
+                },
+                error : function(resultat, statut, erreur){
+                    //alert(erreur);
+                    document.getElementById("messageErreur").innerHTML = 'Erreur : ' + erreur;
+                    console.log(resultat);
+                },
+                complete : function(resultat, statut){
+            
+                }
+            
+            });
+        
+        }
+        
+        function getCheckedByName(name){
+         var chks = document.getElementsByName(name);
+         var results = [];
+         for(var i = 0; i < chks.length; i++){
+             chks[i].checked ? results.push(chks[i]):"";
+         }
+         return results;
+        }
+        
+        
+        </script>
+    
+
+
+<!-- INCLUDE overall_footer.html -->
+
+
+
+                    

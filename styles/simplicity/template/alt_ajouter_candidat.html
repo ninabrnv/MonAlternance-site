@@ -1,0 +1,211 @@
+<!-- INCLUDE overall_header.html -->
+
+
+
+<div class="container-fluid">
+	<div calss="row">
+
+		<div class="col">
+
+		</div>
+		<div class="col">
+
+			<div class="container-fluid imageBackRegister" >
+
+				<div class="row">
+					<div class="container pt-4 mt-4 mb-4" style="background-color: rgba(185, 185, 185, 0.527); border: 1px solid #C0C0C0; border-radius: 10px; box-shadow: 3px 3px 6px 0 #A9A9A9; max-width: 650px">
+
+						<div class="container pt-4 mb-4" style="background-color: white; border: 1px solid #C0C0C0; border-radius: 10px; box-shadow: 3px 3px 6px 0 #A9A9A9">
+
+							<ul class="col-sm-12 clearfix" >
+								<!-- DEBUT CONTENU -->
+
+									<div class="container">
+										<div class="row">
+												<div class="col-12">
+							
+							
+							
+												<form id="formAjouterCandidat" method="post" action="{FORM_AJOUTER_CANDIDAT_ACTION}" enctype="multipart/form-data" autocomplete="false">
+                                                   <input type="hidden" name="action" value="ajouterCandidat">
+                                                    <input type="hidden" name="annonceId" value="{annonceId}">
+												<div class="panel">
+													<div class="inner">
+							
+													<h2>Ajouter un candidat</h2>
+							
+													<div class="container">
+														<div class="row">
+															<div class="col">
+																<!-- IF ERROR --><div class="alt_error">{ERROR}</div><!-- ENDIF -->
+																<!-- IF L_REG_COND -->
+																<div>{L_REG_COND}</div>
+																	<!-- ENDIF -->
+																	<!-- EVENT ucp_register_credentials_before -->
+															</div>
+														</div>
+													
+													</div>
+							
+										
+													<hr />
+							
+													
+							
+													
+							
+							
+													<!-- Champs personnalisés "Candidat" -->
+													<div class="row" id="champsCandidat">
+														<div class="col-xs-3">
+															<label>Prénom :</label> *
+															<input type="text" class="form-control" tabindex="0" name="prenom" id="prenom" value="{prenom}" />
+															<label>Nom :</label> *
+															<input type="text" class="form-control" tabindex="0" name="nom" id="nom" value="{nom}" />
+                                                            
+                                                            <label>Email :</label> *
+															<input type="text" class="form-control" tabindex="0" name="emails" id="email" value="" />
+															
+
+															<label>Age :</label> *
+															
+															<select class="selectpicker form-control" tabindex="0" name="date_naissance" id="date_naissance">
+																	<option></option>
+																	<option>15</option>
+																	<option>16</option>
+																	<option>17</option>
+																	<option>18</option>
+																	<option>19</option>
+																	<option>20</option>
+																	<option>21</option>
+																	<option>22</option>
+																	<option>23</option>
+																	<option>24</option>
+																	<option>25</option>
+																	<option>26 et +</option>
+																</select>
+															
+															<label>Ville :</label> *
+															<input type="search" class="form-control" tabindex="0" name="ville" id="ville" value="{ville}" autocomplete="false"/>
+														
+															<!-- <label>Grande ville la plus proche de chez vous :</label>
+															<input type="search" class="form-control" tabindex="0" name="ville_proche" id="ville_proche" value="{ville_proche}" />		
+															 -->
+															<label>Région :</label> *
+															<select class="selectpicker form-control" tabindex="0" name="region" id="region">
+																<option></option>
+																<option>AUVERGNE-RHONE-ALPES</option>
+																<option>BOURGOGNE-FRANCHE-COMTE</option>
+																<option>BRETAGNE</option>
+																<option>CENTRE-VAL DE LOIRE</option>
+																<option>CORSE</option>
+																<option>GUADELOUPE</option>
+																<option>GRAND EST</option>
+																<option>GUYANE</option>
+																<option>HAUTS-DE-FRANCE</option>
+																<option>ILE-DE-FRANCE</option>
+																<option>LA REUNION</option>
+																<option>MARTINIQUE</option>
+																<option>MAYOTTE</option>
+																<option>NORMANDIE</option>
+																<option>NOUVELLE-AQUITAINE</option>
+																<option>OCCITANIE</option>
+																<option>PAYS DE LA LOIRE</option>
+																<option>PROVENCE-ALPES-COTE D'AZUR</option>
+															</select>
+															
+															<label>Domaine d'activité :</label> *
+															<input type="search" class="form-control " tabindex="0" name="domaine_principal" id="domaine_principal" value="{domaine_principal}" onselect="selectionDomaine();" onclick="selectionDomaine();"/>
+															
+															<div id="rowDomaineArtisanat" style="display: none">
+																<label>Domaine artisanat :</label> *
+																<input type="search" class="form-control " id="domaine_artisanat" name="domaine_artisanat" aria-describedby="domaine_artisanat" value="{domaine_artisanat}">
+															</div>
+															
+															
+															<label>Niveau d'étude :</label> *
+							
+															<select class="selectpicker form-control" tabindex="0" name="niveau_etude" id="niveau_etude">
+																<option></option>
+																<option>CAP</option>
+																<option>BEP</option>
+																<option>BAC professionnel</option>
+																<option>BAC général et technologique</option>
+																<option>BAC+1</option>
+																<option>BAC+2</option>
+																<option>BAC+3</option>
+																<option>BAC+4</option>
+																<option>BAC+5</option>
+																<option>BAC+6</option>
+															</select>
+							
+															
+															<label>Dernière école :</label> *
+															<input type="text" class="form-control" tabindex="0" name="derniere_ecole" id="derniere_ecole" value="{derniere_ecole}" />
+															<label>Téléphone mobile :</label>
+															<input type="text" class="form-control" tabindex="0" name="tel_mobile" id="tel_mobile" value="{tel_mobile}" />
+															<!-- <label>CV : (Au format PDF uniquement)</label> *
+															<input type="file" name="cv" id="cv" accept="application/pdf">
+														 -->
+														</div>
+													</div>
+							
+												
+
+							
+													</div>
+												
+							
+							
+													</div>
+												</div>
+							
+												<div id="divValiderFormulaire">
+													
+							
+													<div class="panel">
+														<div class="inner">
+													
+															<div class="container">
+																<div class="row">
+																		<div class="col" style="text-align: center;">
+																			
+																			{S_HIDDEN_FIELDS}
+																			<br>
+																			<input type="submit" tabindex="7" name="submit" id="submit" value="Ajouter candidat" class="btn btn-success default-submit-action" />
+																			{S_FORM_TOKEN}
+																			
+																		</div>	
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												</form>
+							
+											</div>
+										</div>
+									</div>
+							
+								
+
+								<!-- FIN CONTENU -->
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>	
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+<div class="pb-5"></div>
+<!-- INCLUDE overall_footer.html -->

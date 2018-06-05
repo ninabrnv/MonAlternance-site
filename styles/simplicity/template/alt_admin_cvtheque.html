@@ -1,0 +1,160 @@
+<!-- INCLUDE overall_header.html -->
+
+
+<h1 class="ml-2">CVthèque</h1>
+
+<div class="container-fluid" > 
+    <div class="row" >  
+        <div class="col-3 col-md-2">
+          
+              <a class="nav-link active" href="{U_ALT_MODERATEUR}">Accueil admin</a>
+              <a class="nav-link" href="{U_ALT_ADMIN_ENTREPRISES}">Comptes entreprises</a>
+              <a class="nav-link" href="{U_ALT_ADMIN_CANDIDATS}">Comptes candidats</a>
+              <a class="nav-link" href="{U_ALT_ADMIN_ADMINS}">Comptes admins</a>
+              <a class="nav-link" href="{U_ALT_ADMIN_ANNONCES}">Annonces</a>
+              <a class="nav-link" href="{U_ALT_ADMIN_CANDIDATURES}">Dernières candidatures</a>
+              <a class="nav-link" href="{U_ALT_ADMIN_PAIEMENTS}">Derniers paiements</a>
+              <a class="nav-link" href="{U_ALT_ADMIN_CVTHEQUE}"><b>CVthèque</b></a>
+              
+            
+        </div>
+        <div class="col-9 col-md-10" >
+      
+            <div class="card d-none d-md-block d-lg-block d-xl-block">
+                <div class="card-header">
+                    Filtres sur la CVThèque
+                </div>
+                <form id="formFiltreCandidat" class="p-2" method="post" action="{U_ALT_ADMIN_CVTHEQUE}">
+                    <input type="hidden" name="action" value="filtreCV">
+                    <div class="form-row align-items-center">
+                        <div class="col-auto my-1">
+                            <label class="sr-only" for="filtrePrenom">Prénom</label>
+                            <input type="text" class="form-control mb-2" name="filtrePrenom" id="filtrePrenom" placeholder="Prénom" value="{filtrePrenom}">
+                        </div>
+                        <div class="col-auto my-1">
+                            <label class="sr-only" for="filtreNom">Nom</label>
+                            <input type="text" class="form-control mb-2" name="filtreNom" id="filtreNom" placeholder="Nom" value="{filtreNom}">
+                        </div>
+                        <div class="col-auto my-1">
+                            <label class="sr-only" for="filtreEmail">Email</label>
+                            <input type="text" class="form-control mb-2" name="filtreEmail" id="filtreEmail" placeholder="Email" value="{filtreEmail}">
+                        </div>
+                        <div class="col-auto my-1">
+                            <label class="sr-only" for="filtreTel">Tél</label>
+                            <input type="text" class="form-control mb-2" name="filtreTel" id="filtreTel" placeholder="Tél" value="{filtreTel}">
+                        </div>
+                        <div class="col-auto my-1">
+                            <label class="sr-only" for="filtreVille">Ville</label>
+                            <input type="text" class="form-control mb-2" name="filtreVille" id="filtreVille" placeholder="Ville" value="{filtreVille}">
+                        </div>
+                        <div class="col-auto my-1">
+                            <label class="sr-only" for="filtreVilleProche">Ville proche</label>
+                            <input type="text" class="form-control mb-2" name="filtreVilleProche" id="filtreVilleProche" placeholder="Ville proche" value="{filtreVilleProche}">
+                        </div>
+                        <div class="col-auto my-1">
+                            <label class="sr-only" for="filtreRegion">Région</label>
+                            <input type="text" class="form-control mb-2" name="filtreRegion" id="filtreRegion" placeholder="Région" value="{filtreRegion}">
+                        </div>
+                        <div class="col-auto my-1">
+                            <label class="sr-only" for="filtreDomaineActivite">Domaine activité</label>
+                            <input type="text" class="form-control mb-2" name="filtreDomaineActivite" id="filtreDomaineActivite" placeholder="Domaine activité" value="{filtreDomaineActivite}">
+                        </div>
+                        <div class="col-auto my-1">
+                            <label class="sr-only" for="filtreDomaineActiviteArtisanat">Domaine artisanat</label>
+                            <input type="text" class="form-control mb-2" name="filtreDomaineActiviteArtisanat" id="filtreDomaineActiviteArtisanat" placeholder="Domaine artisanat" value="{filtreDomaineActiviteArtisanat}">
+                        </div>
+                        <div class="col-auto my-1">
+                            <label class="sr-only" for="filtreNiveauEtude">Niveau étude</label>
+                            <input type="text" class="form-control mb-2" name="filtreNiveauEtude" id="filtreNiveauEtude" placeholder="Niveau d'étude" value="{filtreNiveauEtude}">
+                        </div>
+                        <div class="col-auto my-1">
+                            <label class="mr-sm-2" for="filtreAge">Age</label>
+                            <select class="custom-select mr-sm-2" name="filtreAge" id="filtreAge">
+                            <option selected>{filtreAge}</option>
+                                <option></option>
+                                <option>15</option>
+                                <option>16</option>
+                                <option>17</option>
+                                <option>18</option>
+                                <option>19</option>
+                                <option>20</option>
+                                <option>21</option>
+                                <option>22</option>
+                                <option>23</option>
+                                <option>24</option>
+                                <option>25</option>
+                                <option>26 et +</option>
+                            </select>
+                        </div>
+                    
+                        <div class="col-auto my-1">
+                            <button type="submit" class="btn btn-primary">Rechercher</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <br>
+            <a href="{lien_export}" target="_blank">Exporter vers Excel</a>
+
+
+            <br><br>
+
+                <div class="container-fluid">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>&nbsp;#</th>
+                                <th>Prénom</th>
+                                <th>Nom</th>
+                                <th>Consulter le CV</th>
+                                <th>Email</th>
+                                <th>Tél</th>
+                                <th>Age</th>
+                                <th>Ville</th>
+                                <th>Ville proche</th>
+                                <th>Région</th>
+                                <th>Domaine d'activité</th>
+                                <th>Domaine artisanat</th>
+                                <th>Niveau d'étude</th>
+                                <th>Dernière école</th>
+                                
+                                <th>Inscription</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <!-- BEGIN candidats -->  
+                                <tr>
+                                    <td><input class="ml-1" type="checkbox" class="form-check-input" name="listeSelection" id="{candidats.id}"></td>
+                                    <td nowrap>{candidats.prenom}</td>
+                                    <td nowrap>{candidats.nom}</td>
+                                    <td nowrap><a href="{candidats.cv_href}" target="_blank"><b>{candidats.cv_nom}</b></a></td>
+                                    <td nowrap>{candidats.email}</td>
+                                    <td nowrap>{candidats.tel_mobile}</td>
+                                    <td nowrap>{candidats.age}</td>
+                                    <td nowrap>{candidats.ville}</td>
+                                    <td nowrap>{candidats.ville_proche}</td>
+                                    <td nowrap>{candidats.region}</td>
+                                    <td nowrap>{candidats.domaine_principal}</td>
+                                    <td nowrap>{candidats.domaine_artisanat}</td>
+                                    <td nowrap>{candidats.niveau_etude}</td>
+                                    <td nowrap>{candidats.derniere_ecole}</td>
+                                    
+                                    <td nowrap>{candidats.date_creation}</td>
+                                </tr>
+                                <!-- END candidats --> 
+                            </tbody>
+                        </table>
+                    </div>
+           
+               
+        </div>
+    </div>
+</div>
+
+<br><br><br>
+
+<!-- INCLUDE overall_footer.html -->
+
+
+
+                    

@@ -1,0 +1,115 @@
+<!-- INCLUDE overall_header.html -->
+
+
+<h1 class="ml-2">Liste des 200 dernières transactions bancaires</h1>
+
+<div class="container-fluid" > 
+    <div class="row" >  
+        <div class="col-3 col-md-2">
+          
+              <a class="nav-link active" href="{U_ALT_MODERATEUR}">Accueil admin</a>
+              <a class="nav-link" href="{U_ALT_ADMIN_ENTREPRISES}">Comptes entreprises</a>
+              <a class="nav-link" href="{U_ALT_ADMIN_CANDIDATS}">Comptes candidats</a>
+              <a class="nav-link" href="{U_ALT_ADMIN_ADMINS}">Comptes admins</a>
+              <a class="nav-link" href="{U_ALT_ADMIN_ANNONCES}">Annonces</a>
+              <a class="nav-link" href="{U_ALT_ADMIN_CANDIDATURES}">Dernières candidatures</a>
+              <a class="nav-link" href="{U_ALT_ADMIN_PAIEMENTS}"><b>Derniers paiements</b></a>
+              <a class="nav-link" href="{U_ALT_ADMIN_CVTHEQUE}">CVthèque</a>
+              
+            
+        </div>
+        <div class="col-9 col-md-10" >
+      
+            <div class="card d-none d-md-block d-lg-block d-xl-block">
+                <div class="card-header">
+                    Filtres sur la liste des paiements
+                </div>
+                <form id="formFiltrePaiement" class="p-2" method="post" action="{U_ALT_ADMIN_PAIEMENTS}">
+                    <input type="hidden" name="action" value="filtreEntreprise">
+                    <div class="form-row align-items-center">
+                        <div class="col-auto my-1">
+                            <label class="sr-only" for="filtreEntreprise">Entreprise</label>
+                            <input type="text" class="form-control mb-2" name="filtreEntreprise" id="filtreEntreprise" placeholder="Entreprise" value="{filtreEntreprise}">
+                        </div>
+                        
+                        <div class="col-auto my-1">
+                            <label class="sr-only" for="filtreEmail">Email</label>
+                            <input type="text" class="form-control mb-2" name="filtreEmail" id="filtreEmail" placeholder="Email" value="{filtreEmail}">
+                        </div>
+                        <div class="col-auto my-1">
+                            <label class="sr-only" for="filtreTel">Tél</label>
+                            <input type="text" class="form-control mb-2" name="filtreTel" id="filtreTel" placeholder="Tél" value="{filtreTel}">
+                        </div>
+                        <div class="col-auto my-1">
+                            <label class="sr-only" for="filtreMontant">Montant</label>
+                            <input type="text" class="form-control mb-2" name="filtreMontant" id="filtreMontant" placeholder="Montant" value="{filtreMontant}">
+                        </div>
+                        <div class="col-auto my-1">
+                            <label class="sr-only" for="filtreStatut">Statut</label>
+                            <input type="text" class="form-control mb-2" name="filtreStatut" id="filtreStatut" placeholder="Statut" value="{filtreStatut}">
+                        </div>
+                  
+
+                        <div class="col-auto my-1">
+                            <label class="sr-only" for="filtreSiret">Siret</label>
+                            <input type="text" class="form-control mb-2" name="filtreSiret" id="filtreSiret" placeholder="Siret" value="{filtreSiret}">
+                        </div>
+                     
+                    
+                        <div class="col-auto my-1">
+                            <button type="submit" class="btn btn-primary">Rechercher</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <br>
+
+
+            <div class="container-fluid">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>&nbsp;#</th>
+                                    <th>Date transaction</th>
+                                    <th>Entreprise</th>
+                                    <th>Email</th>
+                                    <th>Tél</th>
+                                    <th>Siret</th>
+                                    <th>Montant</th>
+                                    <th>Statut</th> 
+                                    <th>Date paiement</th>
+                                    <!-- <th>Montant réelement payé</th> -->
+                                    <th>Annonce (actives)</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- BEGIN paiements -->  
+                                    <tr>
+                                        <td><input class="ml-1" type="checkbox" class="form-check-input" id="selectionnerPaiement{paiements.id}"></td>
+                                        <td nowrap>{paiements.transaction_date}</td>
+                                        <td nowrap>{paiements.societe_nom}</td>
+                                        <td nowrap>{paiements.email}</td>
+                                        <td nowrap>{paiements.societe_tel}</td>
+                                        <td nowrap>{paiements.societe_siret}</td>
+                                        <td nowrap>{paiements.montant} €</td>
+                                        <td nowrap>{paiements.statut}</td>
+                                        <td nowrap>{paiements.date_paiement}</td>
+                                        <!-- <td>{paiements.montant_reelement_paye}</td> -->
+                                        <td nowrap><a href="{paiements.lien}" target="_blank">{paiements.annonce_id}</a></td>
+                                    </tr>
+                                    <!-- END paiements --> 
+                                </tbody>
+                            </table>
+                        </div>
+               
+        </div>
+    </div>
+</div>
+
+<br><br><br>
+
+<!-- INCLUDE overall_footer.html -->
+
+
+
+                    

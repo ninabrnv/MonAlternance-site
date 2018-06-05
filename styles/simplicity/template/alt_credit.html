@@ -1,0 +1,143 @@
+<!-- INCLUDE overall_header.html -->
+
+<!-- IF CREATION_ANNONCE -->
+<div class="container pb-3" style="border: 1px solid rgba(0,0,0,.125);">
+    <h1>Etape par étape</h1>
+    <div class="progress">
+        <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+        Etape 4/4 : Paiement sécurisé de votre achat
+        </div>
+    </div>
+</div>
+<br>
+<!-- ENDIF -->
+
+<div class="container-fluid">
+        <div calss="row">
+    
+            <div class="col">
+    
+            </div>
+            <div class="col">
+    
+                <div class="container-fluid" >
+    
+                    <div class="row">
+                        <div class="container pt-4 mt-4 mb-4" style="background-color: rgba(185, 185, 185, 0.527); border: 1px solid #C0C0C0; border-radius: 10px; box-shadow: 3px 3px 6px 0 #A9A9A9; width: 650px">
+    
+                            <div class="container pt-4 mb-4" style="background-color: white; border: 1px solid #C0C0C0; border-radius: 10px; box-shadow: 3px 3px 6px 0 #A9A9A9; width: 600px">
+    
+                                <ul class="col-sm-12 clearfix" >
+                                    <!-- DEBUT CONTENU -->
+                                    
+
+
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-12" style="text-align: center">
+                                                    
+                                                    <!-- IF !S_USER_LOGGED_IN -->	
+                                                    <div style="color: rgb(173, 0, 0)">{MESSAGE_ERREUR}</div>    
+                                                    <!-- ELSE -->
+                                                    <form method="POST" action="https://paiement.systempay.fr/vads-payment/">
+                                                        <input type="hidden" name="vads_action_mode" value="{vads_action_mode}" />
+                                                        <input type="hidden" name="vads_amount" value="{vads_amount}" />
+                                                        <input type="hidden" name="vads_capture_delay" value="{vads_capture_delay}" />
+                                                        <input type="hidden" name="vads_ctx_mode" value="{vads_ctx_mode}" />
+                                                        <input type="hidden" name="vads_currency" value="{vads_currency}" />
+                                                        <input type="hidden" name="vads_page_action" value="{vads_page_action}" />
+                                                        <input type="hidden" name="vads_payment_config" value="{vads_payment_config}" />
+                                                        <input type="hidden" name="vads_return_mode" value="{vads_return_mode}" />
+                                                        <input type="hidden" name="vads_site_id" value="{vads_site_id}" />
+                                                        <input type="hidden" name="vads_trans_date" value="{vads_trans_date}" />
+                                                        <input type="hidden" name="vads_trans_id" value="{vads_trans_id}" />
+                                                        <input type="hidden" name="vads_url_return" value="{vads_url_return}" />
+                                                        <input type="hidden" name="vads_version" value="{vads_version}" />
+                                                        <input type="hidden" name="vads_theme_config" value="{vads_theme_config}" />
+                                                        <input type="hidden" name="signature" value="{signature}"/>
+                                                        
+                                                        
+                                                        <img src="{T_IMAGES_PATH}site/accueil/logo-carte-bleue.jpg">
+                                                        <br>
+                                                        Vous allez être rediriger vers la page paiement pour effectuer une transaction de {montant} € TTC
+                                                        <br><br>
+                                                        <input type="submit" name="payer" value="Confirmation paiement par CB" class="btn btn-success default-submit-action"/>
+                                                        
+                                                    </form>
+                                                    <!-- ENDIF -->	
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    <!-- FIN CONTENU -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+               
+                    <div class="row">
+                            <div class="container pt-4 mt-4 mb-4" style="background-color: rgba(185, 185, 185, 0.527); border: 1px solid #C0C0C0; border-radius: 10px; box-shadow: 3px 3px 6px 0 #A9A9A9; width: 650px">
+        
+                                <div class="container pt-4 mb-4" style="background-color: white; border: 1px solid #C0C0C0; border-radius: 10px; box-shadow: 3px 3px 6px 0 #A9A9A9; width: 600px">
+        
+                                    <ul class="col-sm-12 clearfix" >
+                                        <!-- DEBUT CONTENU -->
+                                        
+    
+    
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-12" style="text-align: center">
+                                                        
+                                                        <!-- IF !S_USER_LOGGED_IN -->	
+                                                        <div style="color: rgb(173, 0, 0)">{MESSAGE_ERREUR}</div>    
+                                                        <!-- ELSE -->
+                                                        <form method="POST" action="{ACTION_FORM_VIREMENT_BANCAIRE}">
+                                                            <input type="hidden" name="vads_action_mode" value="{vads_action_mode}" />
+                                                            <input type="hidden" name="vads_amount" value="{vads_amount}" />
+                                                            <input type="hidden" name="vads_capture_delay" value="{vads_capture_delay}" />
+                                                            <input type="hidden" name="vads_ctx_mode" value="{vads_ctx_mode}" />
+                                                            <input type="hidden" name="vads_currency" value="{vads_currency}" />
+                                                            <input type="hidden" name="vads_page_action" value="{vads_page_action}" />
+                                                            <input type="hidden" name="vads_payment_config" value="{vads_payment_config}" />
+                                                            <input type="hidden" name="vads_return_mode" value="{vads_return_mode}" />
+                                                            <input type="hidden" name="vads_site_id" value="{vads_site_id}" />
+                                                            <input type="hidden" name="vads_trans_date" value="{vads_trans_date}" />
+                                                            <input type="hidden" name="vads_trans_id" value="{vads_trans_id}" />
+                                                            <input type="hidden" name="vads_url_return" value="{vads_url_return}" />
+                                                            <input type="hidden" name="vads_version" value="{vads_version}" />
+                                                            <input type="hidden" name="vads_theme_config" value="{vads_theme_config}" />
+                                                            <input type="hidden" name="signature" value="{signature}"/>
+                                                            <input type="hidden" name="montant" value="{montant}"/>
+                                                            
+                                                            <img src="{T_IMAGES_PATH}site/accueil/logo-virement-bancaire.png">
+                                                            <br>
+                                                            Vous allez être rediriger vers la page paiement pour effectuer une transaction de {montant} € TTC
+                                                            <br><br>
+                                                            <input type="submit" name="payer" value="Confirmation paiement par virement" class="btn btn-success default-submit-action"/>
+                                                            
+                                                        </form>
+                                                        <!-- ENDIF -->	
+    
+    
+                                                    </div>
+                                                </div>
+                                            </div>
+    
+                                        <!-- FIN CONTENU -->
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+               
+               
+                </div>	
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="alt_lien_sous_titre">{email_enable}</div> -->
+
+<!-- INCLUDE overall_footer.html -->

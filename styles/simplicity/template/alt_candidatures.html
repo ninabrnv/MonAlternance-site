@@ -1,0 +1,167 @@
+<!-- INCLUDE overall_header.html -->
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="{U_ALT_MES_ANNONCES}"><< Retour à mes annonces</a>
+<br>
+<div class="container-fluid">
+
+    <div class="card p-2">
+      
+        <div class="container-fluid" >
+            <div class="row mb-2">
+                <!-- Partie gauche -->
+                <div class="col-12 col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                        Candidature
+                        </div>
+                        <div class="card-body" style="text-align: center">
+                            
+                         
+                            <button type="button" class="btn btn-success" onclick="showRangerDans()">Conserver</button> 
+                            <button type="button" class="btn btn-danger" onclick="candidatureSuppr()">Supprimer</button>
+                            
+                            <div id="divRangerDans" style="display: {display_rangerDans}">
+                                <br>
+                                Ranger dans : 
+                                <select class="selectpicker form-control" tabindex="0" name="selectRangerDans" id="selectRangerDans" onchange="majStatutCandidature()">
+                                    <option selected>{statut}</option>
+                                    <option></option>
+                                    <option>Sélectionné</option>
+                                    <option>Refusé</option>
+                            
+                                </select>
+                            </div>
+                            <br><br>
+                            <a href="{lien_precedent}">&lt;Précédent</a>&nbsp;&nbsp;&nbsp;<a href="{lien_suivant}" id="lienSuivant">Suivant&gt;</a>
+                            <br>Candidature : {indice}/{nb_candidatures}
+                        </div>
+                    </div>
+                    <br>
+                    <div class="card">
+                            <div class="card-header">
+                            Candidat
+                            </div>
+                            <div class="card-body">
+                            <h5 class="card-title">{prenom} {nom}</h5>
+                            <p class="card-text">
+                            Ville : <b>{ville}</b>
+                            <br>Email : <b>{candidat_email}</b>
+                            <br>Tél : <b>{tel}</b>
+                            <br>Age : <b>{age}</b>
+                            <br>Niveau étude : <b>{niveau_etude}</b>
+                            <br>Domaine : <b>{domaine}</b>
+                            <br>Artisanat : <b>{domaine_artisanat}</b>
+                            </p>
+                            
+                            </div>
+                        </div>
+                        <br>
+                    <div class="card">
+                        <div class="card-header">
+                        Annonce
+                        </div>
+                        <div class="card-body">
+                        <h5 class="card-title">{annonce_titre}</h5>
+                        <p class="card-text">{annonce_description}</p>
+                        
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+                <!-- Partie droite -->
+                <div class="col-12 col-md-8">
+                    <div class="card">
+                        <div class="card-header">
+                        Le CV
+                        </div>
+                        <div class="card-body">
+                                <a href="{cv}" target="_blank">Télécharger le CV</a>
+                            
+                                {cv_pdf}
+                                
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <br><br><br>
+</div>
+
+<script>
+    function showRangerDans() {
+
+        document.getElementById('divRangerDans').style.display = 'block';
+
+    }
+
+    function majStatutCandidature() {
+
+        var statut = document.getElementById('selectRangerDans').value;
+        var action = "";
+
+        if (statut == "Sélectionné") {
+            action = 'candidatureStatutSelectionner';
+        } else if (statut == "Refusé") {
+            action = 'candidatureStatutRefuser';
+        }
+
+        if (action != '') {
+            $.ajax({
+            url : '{U_ALT_AJAX}',
+            type : 'POST', 
+            data : 'action='+action+'&candidatureId={id_candidature}', 
+            dataType : 'html',
+            success : function(code_html, statut){ 
+
+                // alert(code_html);
+
+
+            },
+
+            error : function(resultat, statut, erreur){
+                alert(erreur);
+                console.log(resultat);
+            },
+            complete : function(resultat, statut){
+
+            }
+
+            });
+        }
+    }
+
+    function candidatureSuppr() {
+
+     
+            $.ajax({
+            url : '{U_ALT_AJAX}',
+            type : 'POST', 
+            data : 'action=candidatureSuppr&candidatureId={id_candidature}', 
+            dataType : 'html',
+            success : function(code_html, statut){ 
+
+                document.getElementById('lienSuivant').click();
+            },
+
+            error : function(resultat, statut, erreur){
+                alert(erreur);
+                console.log(resultat);
+            },
+            complete : function(resultat, statut){
+
+            }
+
+        });
+    
+}
+
+
+</script>
+
+<!-- INCLUDE overall_footer.html -->

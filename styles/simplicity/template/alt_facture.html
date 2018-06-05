@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html dir="{S_CONTENT_DIRECTION}" lang="{S_USER_LANG}">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- IF DESCRIPTION_PAGE -->
+<meta name="description" content="{DESCRIPTION_PAGE}">
+<!-- ENDIF -->
+<meta name="keywords" content="alternance, offres alternance, formation alternance, alternance ecole, ecole alternance, contrat alternance, formations en alternance, stage, emploi, job">
+{META}
+<title>{PAGE_TITLE}</title>
+
+<!-- IF ALT_PRODUCTION -->
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-111385779-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-111385779-1');
+</script>
+<!-- ENDIF -->
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"> 
+ <link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.min.css">
+  
+
+<!-- IF ALT_STYLE_fORUM -->
+<link href="{T_FONT_AWESOME_LINK}" rel="stylesheet">
+<link href="{T_STYLESHEET_LINK}" rel="stylesheet">
+<!-- ENDIF -->
+
+<!-- IF S_CONTENT_DIRECTION eq 'rtl' -->
+	<link href="{T_THEME_PATH}/bidi.css?assets_version={T_ASSETS_VERSION}" rel="stylesheet">
+<!-- ENDIF -->
+
+<!-- IF S_PLUPLOAD -->
+	<link href="{T_THEME_PATH}/plupload.css?assets_version={T_ASSETS_VERSION}" rel="stylesheet">
+<!-- ENDIF -->
+
+<!-- IF S_COOKIE_NOTICE -->
+	<link href="{T_ASSETS_PATH}/cookieconsent/cookieconsent.min.css?assets_version={T_ASSETS_VERSION}" rel="stylesheet">
+<!-- ENDIF -->
+
+
+
+<!-- EVENT overall_header_head_append -->
+
+{$STYLESHEETS}
+
+<!-- EVENT overall_header_stylesheets_after -->
+
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="stylesheet" type="text/css" href="assets/css/alt.css">
+
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css'>
+
+</head>
+<body id="monalternance" class="nojs notouch section-{SCRIPT_NAME} {S_CONTENT_DIRECTION} {BODY_CLASS}" data-online-text="{L_ONLINE}">
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+    		<div class="invoice-title">
+                    <a href="{U_SITE_HOME}"><img src="{T_IMAGES_PATH}site/logo/{IMAGE_LOGO_MON_ALTERNANCE}" border="0" class="ml-1" alt="Mon Alternance logo"></a>
+    			<br>
+    		</div>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <address>
+            <strong>Destinataire :</strong><br>
+                {facture_nom}<br>
+                {facture_adresse_ligne1}<br>
+                {facture_adresse_ligne2}<br>
+                {facture_adresse_cp} {facture_adresse_ville}
+            </address>
+        </div>
+        <div class="col-md-6">
+            Date de la facture : {facture_date}
+            <br>N° de compte : {facture_compte}
+            <br>N° de facture : {facture_ref}
+            <br>Date d'échéance : paiement immédiat
+        </div>
+    </div>
+    <div class="row">
+    	<div class="col-md-12">
+    		<div class="panel panel-default">
+    			<div class="panel-heading">
+    				<h3 class="panel-title"><strong>Facture N° {facture_ref}</strong></h3>
+    			</div>
+    			<div class="panel-body">
+    				<div class="table-responsive">
+    					<table class="table table-condensed">
+    						<thead>
+                                <tr>
+                                    <td><strong>Description</strong></td>
+                                    <td class="text-center"><strong>Quantité</strong></td>
+        							<td class="text-center"><strong>Prix HT</strong></td>
+        							<td class="text-center"><strong>Montant TVA</strong></td>
+        							<td class="text-right"><strong>Total TTC</strong></td>
+                                </tr>
+    						</thead>
+    						<tbody>
+    							
+    							<tr>
+    								<td>{facture_ligne_description}</td>
+    								<td class="text-center">{facture_ligne_quantite}</td>
+    								<td class="text-center">{facture_ligne_montant_ht} €</td>
+                                    <td class="text-center">{facture_ligne_montant_tva} €</td>
+                                    <td class="text-right">{facture_ligne_montnat_ttc} €</td>
+    							</tr>
+                              
+    						</tbody>
+    					</table>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+    <div class="row">
+            <div class="col-md-8">
+                &nbsp;
+            </div>
+            <div class="col-md-4">
+                <br>
+                    
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table table-condensed">
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Total HT</strong></td>
+                                        <td class="text-center">{facture_total_ht} €</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>TVA 20 %</strong></td>
+                                        <td class="text-center">{facture_total_tva} €</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Total TTC</strong></td>
+                                        <td class="text-center">{facture_total_ttc} €</td>
+                                    </tr>
+                                
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                
+            </div>
+        </div>
+</div>
+
+<div style="text-align: center; font-size: 10px">
+<br><br>Epsilon SAS, RCS Toulouse 834 147 548, 8 Esplanade Compans Caffarelli - Immeuble Atria, 31000 Toulouse. Capital: 6.000€  TVA: FR87834147548						
+<br>Sans ordre de virement sous 3 jours, les services souscrits sur www.mon-alternance.fr seront suspendu.						
+<br>Pas d'escompte pour reglément anticipé. 						
+<br>Indemnité forfataire pour frais de recouvrement en cas de retard de virement : 15€.						
+</div>
+
+</div>
+
+
+
+<!-- IF S_COOKIE_NOTICE -->
+    <script src="{T_ASSETS_PATH}/cookieconsent/cookieconsent.min.js?assets_version={T_ASSETS_VERSION}"></script>
+    <script>
+        window.addEventListener("load", function(){
+            window.cookieconsent.initialise({
+                "palette": {
+                    "popup": {
+                        "background": "#0F538A"
+                    },
+                    "button": {
+                        "background": "#E5E5E5"
+                    }
+                },
+                "theme": "classic",
+                "content": {
+                    "message": "{LA_COOKIE_CONSENT_MSG}",
+                    "dismiss": "{LA_COOKIE_CONSENT_OK}",
+                    "link": "{LA_COOKIE_CONSENT_INFO}",
+                    "href": "{LA_COOKIE_CONSENT_HREF}"
+                }
+            })});
+    </script>
+<!-- ENDIF -->
+
+<!-- EVENT overall_footer_after -->
+
+<!-- IF S_PLUPLOAD --><!-- INCLUDE plupload.html --><!-- ENDIF -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+
+
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+{$SCRIPTS}
+
+{ALT_SCRIPT_PAGE}
+
+
+<!-- EVENT overall_footer_body_after -->
+</body>
+</html>

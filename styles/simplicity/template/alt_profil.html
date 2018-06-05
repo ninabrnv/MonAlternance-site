@@ -1,0 +1,173 @@
+<!-- INCLUDE overall_header.html -->
+<div class="container">
+    <div class="row">
+        <div class="col-3" role="complementary" >
+
+        </div>
+        <div class="col-6" role="main" >
+            <br>
+
+     
+            <div class="container card p-3 mt-3 pb-3">
+                <div class="row">
+                    <div class="col">
+                        <strong>Informations de profil</strong>
+                    </div>
+                </div>
+
+                <div class="row ">
+                    <div class="col" >
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">ID :</div>
+                                    <div class="col">{USER_ID}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">Email :</div>
+                                    <div class="col">{EMAIL}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">Type de compte :</div>
+                                    <div class="col">{TYPE_COMPTE}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">Prénom :</div>
+                                    <div class="col">{PRENOM}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">Nom :</div>
+                                    <div class="col">{NOM}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">Ville :</div>
+                                    <div class="col">{VILLE}</div>
+                                </div>
+                                <div class="row">
+                                        <div class="col">Date de naissance :</div>
+                                        <div class="col">{DATE_DE_NAISSANCE}</div>
+                                    </div>                                
+                                <div class="row">
+                                        <div class="col">Domaine principal :</div>
+                                        <div class="col">{DOMAINE_PRINCIPAL}</div>
+                                    </div>                                        
+                                <div class="row">
+                                        <div class="col">Niveau d'étude :</div>
+                                        <div class="col">{NIVEAU_ETUDE}</div>
+                                    </div>                                            
+                                <div class="row">
+                                        <div class="col">Dernière école :</div>
+                                        <div class="col">{DERNIERE_ECOLE}</div>
+                                    </div>                                                
+                                <div class="row">
+                                        <div class="col">Tél mobile :</div>
+                                        <div class="col">{TEL_MOBILE}</div>
+                                </div>
+                                <div class="row">
+                                        <div class="col">Societé Nom :</div>
+                                        <div class="col">{SOCIETE_NOM}</div>
+                                </div>
+                                                                                                                                                                                                               
+                            </div>           
+                    </div>            
+                                  
+                </div>
+                
+       
+            </div>
+            <!-- fin des informations de profil -->
+
+
+
+            <div class="container card p-3 mt-3 pb-3">
+                <div class="row">
+                    <div class="col">
+                        <strong>Informations de compte</strong>
+                    </div>
+                </div>
+
+                <div class="row ">
+                    <div class="col" >
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">Argent disponible :</div>
+                                    <div class="col">{ARGENT}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                            <br>
+                                        <form name="formCredit" method="POST" action="{FORM_CREDIT_ACTION}">
+                                            Montant que vous souhaitez créditer sur votre compte : <input type="text" name="montant" value="100" size="15"/> €
+                                            <br><br>
+                                            <input type="submit" name="btnCreditCompte" value="Créditer mon compte" class="btn btn-success default-submit-action">
+                                        </form>
+                                    </div>    
+                                </div>                                                                                                                                                                               
+                            </div>           
+                    </div>            
+                                    
+                </div>
+                
+        
+            </div>
+            <!-- fin des informations de compte -->
+        
+            <!-- Annonces où j'ai postulées -->
+            <div class="container card p-3 mt-3 pb-3">
+                    <div class="row">
+                        <div class="col">
+                            <strong>Dernières annonces où j'ai postulées</strong>
+                        </div>
+                    </div>
+    
+                    <div class="row ">
+                        <div class="col" >
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col">Date</div>
+                                        <div class="col">Domaine</div>
+                                        <div class="col">Titre annonce</div>
+                                    </div>
+                                                                                                                                                                                
+                                </div>           
+                        </div>            
+                                        
+                    </div>
+                    
+            
+                </div>
+                <!-- fin Annonces où j'ai postulées -->
+    
+            <!-- Annonces en favoris -->
+            <div class="container card p-3 mt-3 pb-3">
+                    <div class="row">
+                        <div class="col">
+                            <strong>Annonces en favoris</strong>
+                        </div>
+                    </div>
+    
+                    <div class="row ">
+                        <div class="col" >
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col">Date</div>
+                                        <div class="col">Domaine</div>
+                                        <div class="col">Titre annonce</div>
+                                    </div>
+                                                                                                                                                                                
+                                </div>           
+                        </div>            
+                                        
+                    </div>
+                    
+            
+                </div>
+                <!-- fin Annonces en favoris -->
+
+        </div>         
+        <div class="col-3" role="complementary" >
+              
+        </div>
+    </div>
+</div>
+<br><br><br>
+<!-- INCLUDE overall_footer.html -->

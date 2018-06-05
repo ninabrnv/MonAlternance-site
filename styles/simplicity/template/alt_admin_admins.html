@@ -1,0 +1,130 @@
+<!-- INCLUDE overall_header.html -->
+
+
+<h1 class="ml-2">Liste des comptes admins</h1>
+
+<div class="container-fluid" > 
+    <div class="row" >  
+        <div class="col-3 col-md-2">
+          
+              <a class="nav-link active" href="{U_ALT_MODERATEUR}">Accueil admin</a>
+              <a class="nav-link" href="{U_ALT_ADMIN_ENTREPRISES}">Comptes entreprises</a>
+              <a class="nav-link" href="{U_ALT_ADMIN_CANDIDATS}">Comptes candidats</a>
+              <a class="nav-link" href="{U_ALT_ADMIN_ADMINS}"><b>Comptes admins</b></a>
+              <a class="nav-link" href="{U_ALT_ADMIN_ANNONCES}">Annonces</a>
+              <a class="nav-link" href="{U_ALT_ADMIN_CANDIDATURES}">Dernières candidatures</a>
+              <a class="nav-link" href="{U_ALT_ADMIN_PAIEMENTS}">Derniers paiements</a>
+              <a class="nav-link" href="{U_ALT_ADMIN_CVTHEQUE}">CVthèque</a>
+              
+            
+        </div>
+        <div class="col-9 col-md-10" >
+ 
+            <div style="text-align: center; color: green" id="messageOk"></div>
+            <div style="text-align: center; color: red" id="messageErreur"></div>
+
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButtonAdmins" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Actions pour la sélection
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" onclick="desactiverStatutAdmin();">Désactiver le statut d'admin</a>
+
+                </div>
+              </div>
+              <br>
+
+                        <div class="table-responsive  table-hover">          
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>&nbsp;#</th>
+                                    <th>Prénom</th>
+                                    <th>Nom</th>
+                                    <th>Email</th>
+                                    <th>Tél</th> 
+                                    <th>CV</th>
+                                    <th>Inscription</th>
+                                    <th>Id</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- BEGIN admins -->  
+                                    <tr>
+                                        <td><input class="ml-1" type="checkbox" class="form-check-input" name="listeSelection" id="{admins.id}"></td>
+                                        <td>{admins.prenom}</td>
+                                        <td>{admins.nom}</td>
+                                        <td>{admins.email}</td>
+                                        <td>{admins.tel_mobile}</td>
+                                        <td><a href="{admins.cv_href}" target="_blank"><b>{admins.cv_nom}</b></a></td>
+                                        <td>{admins.date_creation}</td>
+                                        <td>{admins.id}</td>
+                                    </tr>
+                                    <!-- END admins --> 
+                                </tbody>
+                            </table>
+                        </div>
+               
+        </div>
+    </div>
+</div>
+
+<br><br><br>
+
+<script>
+
+function desactiverStatutAdmin() {
+
+var action = "adminDesactiver";
+var data_str = "";
+
+var list = getCheckedByName('listeSelection');
+
+ for(var i = 0; i < list.length; i++) {
+    // alert('case cochées id : ' + list[i].id);
+     data_str += list[i].id + ',';
+ }
+
+ $.ajax({
+     url : '{U_ALT_AJAX}',
+     type : 'POST', 
+
+     data : 'action='+ action +'&elements=' + data_str, 
+     dataType : 'html',
+     success : function(code_html, statut){ 
+ 
+        // alert(code_html);
+        document.getElementById("messageOk").innerHTML = 'Les comptes admins ont été désactivés! (<a href="{U_ALT_ADMIN_ADMINS}">actualisez</a> la page)'; 
+
+     },
+ 
+     error : function(resultat, statut, erreur){
+         //alert(erreur);
+         document.getElementById("messageErreur").innerHTML = 'Erreur : ' + erreur;
+         console.log(resultat);
+     },
+     complete : function(resultat, statut){
+ 
+     }
+ 
+ });
+
+}
+
+function getCheckedByName(name){
+ var chks = document.getElementsByName(name);
+ var results = [];
+ for(var i = 0; i < chks.length; i++){
+     chks[i].checked ? results.push(chks[i]):"";
+ }
+ return results;
+}
+
+
+</script>
+
+<!-- INCLUDE overall_footer.html -->
+
+
+
+                    

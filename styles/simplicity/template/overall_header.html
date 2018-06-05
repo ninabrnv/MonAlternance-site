@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html dir="{S_CONTENT_DIRECTION}" lang="{S_USER_LANG}">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<!-- IF DESCRIPTION_PAGE -->
+<meta name="description" content="{DESCRIPTION_PAGE}">
+<!-- ENDIF -->
+<meta name="keywords" content="alternance, offres alternance, formation alternance, alternance ecole, ecole alternance, contrat alternance, formations en alternance, stage, emploi, job">
+{META}
+
+<meta property="og:title" content="Mon Alternance">
+<meta property="og:type" content="website">
+<meta property="og:url" content="http://mon-alternance.fr">
+<meta property="og:image" content="http://mon-alternance.fr/images/site/logo/og.png">
+<meta property="og:description" content="{DESCRIPTION_PAGE}">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Mon-Alternance">
+
+<title>{PAGE_TITLE}</title>
+
+<!-- IF ALT_PRODUCTION -->
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-111385779-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-111385779-1');
+</script>
+
+<!-- <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-5250430950478493",
+          enable_page_level_ads: true
+     });
+</script> -->
+
+<!-- ENDIF -->
+
+<!-- INCLUDE _style_config.html -->
+
+<!-- IF OLD_S_ENABLE_FEEDS -->
+	<!-- IF S_ENABLE_FEEDS_OVERALL --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {SITENAME}" href="{{ path('phpbb_feed_index') }}"><!-- ENDIF -->
+	<!-- IF S_ENABLE_FEEDS_NEWS --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_FEED_NEWS}" href="{{ path('phpbb_feed_news') }}"><!-- ENDIF -->
+	<!-- IF S_ENABLE_FEEDS_FORUMS --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_ALL_FORUMS}" href="{{ path('phpbb_feed_forums') }}"><!-- ENDIF -->
+	<!-- IF S_ENABLE_FEEDS_TOPICS --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_FEED_TOPICS_NEW}" href="{{ path('phpbb_feed_topics') }}"><!-- ENDIF -->
+	<!-- IF S_ENABLE_FEEDS_TOPICS_ACTIVE --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_FEED_TOPICS_ACTIVE}" href="{{ path('phpbb_feed_topics_active') }}"><!-- ENDIF -->
+	<!-- IF S_ENABLE_FEEDS_FORUM and S_FORUM_ID --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_FORUM} - {FORUM_NAME}" href="{{ path('phpbb_feed_forum', { forum_id : S_FORUM_ID } ) }}"><!-- ENDIF -->
+	<!-- IF S_ENABLE_FEEDS_TOPIC and S_TOPIC_ID --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_TOPIC} - {TOPIC_TITLE}" href="{{ path('phpbb_feed_topic', { topic_id : S_TOPIC_ID } ) }}"><!-- ENDIF -->
+	<!-- EVENT overall_header_feeds -->
+<!-- ENDIF -->
+
+<!-- IF U_CANONICAL -->
+	<link rel="canonical" href="{U_CANONICAL}">
+<!-- ENDIF -->
+
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+<script src="{T_ASSETS_PATH}/javascript/jquery.min.js"></script>
+
+ <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">  -->
+ <link rel="stylesheet" href="{T_ASSETS_PATH}/css/bootstrap.min.css">
+ <!-- <link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.min.css"> -->
+ <link rel="stylesheet" type="text/css" href="{T_ASSETS_PATH}/css/jquery-ui.min.css">
+
+<!-- IF ALT_STYLE_fORUM -->
+<link href="{T_FONT_AWESOME_LINK}" rel="stylesheet">
+<link href="{T_STYLESHEET_LINK}" rel="stylesheet">
+<!-- ENDIF -->
+
+<!-- IF S_CONTENT_DIRECTION eq 'rtl' -->
+	<link href="{T_THEME_PATH}/bidi.css?assets_version={T_ASSETS_VERSION}" rel="stylesheet">
+<!-- ENDIF -->
+
+<!-- IF S_PLUPLOAD -->
+	<link href="{T_THEME_PATH}/plupload.css?assets_version={T_ASSETS_VERSION}" rel="stylesheet">
+<!-- ENDIF -->
+
+<!-- IF S_COOKIE_NOTICE -->
+	<link href="{T_ASSETS_PATH}/cookieconsent/cookieconsent.min.css?assets_version={T_ASSETS_VERSION}" rel="stylesheet">
+<!-- ENDIF -->
+
+
+
+<!-- EVENT overall_header_head_append -->
+
+{$STYLESHEETS}
+
+<!-- EVENT overall_header_stylesheets_after -->
+
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="stylesheet" type="text/css" href="assets/css/alt.css">
+
+
+
+<!-- <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css'> -->
+<link rel='stylesheet prefetch' href='{T_ASSETS_PATH}/css/normalize.min.css'>
+
+</head>
+<body id="monalternance" class="nojs notouch section-{SCRIPT_NAME} {S_CONTENT_DIRECTION} {BODY_CLASS}" data-online-text="{L_ONLINE}">
+
+
+<!-- EVENT overall_header_body_before -->
+
+
+
+<div class="container-fluid fixed-top pt-2 mb-2" style="background-color: white;  box-shadow: 8px 8px 8px #aaa; padding-left: 0px; padding-right: 0px;">	
+	<div class="row">
+		<div class="col mr-auto d-none d-md-block d-lg-block d-xl-block">
+			<!-- LOGO -->	
+			<a href="{U_SITE_HOME}"><img src="{T_IMAGES_PATH}site/logo/{IMAGE_LOGO_MON_ALTERNANCE}" border="0" class="ml-1" alt="Mon Alternance logo"></a>
+		</div>
+		<div class="col mr-auto d-block d-sm-block d-md-none">
+			<!-- LOGO small -->	
+			<!-- <a href="{U_SITE_HOME}"><img src="{T_IMAGES_PATH}site/logo/logo-small-60px.png" border="0" class="ml-1" alt="Mon Alternance logo"></a> -->
+			<a href="{U_SITE_HOME}"><img src="{T_IMAGES_PATH}site/logo/{IMAGE_LOGO_MON_ALTERNANCE}" border="0" class="ml-1" alt="Mon Alternance logo" style="max-width: 200px"></a>
+		</div>
+
+		<!-- <div class="col mr-auto d-none d-sm-none d-md-block d-lg-block d-xl-block">
+			
+		</div> -->
+
+		<!-- IF !S_USER_LOGGED_IN -->	
+		<div class="col-auto">	
+			<div class="d-block d-sm-block d-md-none mt-2 mr-2">
+					<a href="{U_LOGIN_LOGOUT}" title="Connexion"><button type="button" class="btn btn-outline-danger btn-sm imageConnexionSmall">Connexion</button></a>
+						<!-- <img src="{T_IMAGES_PATH}site/accueil/connexionLogo.jpg" alt="Connexion"> -->
+					
+			
+			</div>
+			<div class="d-none d-md-block d-lg-block d-xl-block mr-1">
+				<a href="{U_LOGIN_LOGOUT}" title="Connexion"><button type="button" class="btn btn-outline-danger imageConnexion">Connexion</button></a>
+					<!-- <img src="{T_IMAGES_PATH}site/accueil/connexionLogo.jpg" alt="Connexion"> -->
+					
+				
+				<a href="{U_ALT_RECRUTEURS}" title="Accès recruteur"><button type="button" class="btn btn-primary" style="font-size: 11px; font-weight: bold">Accès recruteur<div style="font-size: 9px">Publier une annonce</div></button></a>
+					<!-- <img src="{T_IMAGES_PATH}site/accueil/accesRecruteur.png" alt="Accès Recruteurs"> -->
+					
+				
+			</div>
+		</div>	
+
+		<!-- ELSE -->
+		<div class="col-auto">
+			
+
+			<div class="btn-group mr-1 mt-3">
+				<button class="btn btn-outline-danger dropdown-toggle imageConnexion" type="button" id="dropdownMenuCompte" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				{user_email_or_nomprenom}
+				</button>
+				<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
+			
+					<!-- IF !S_USER_LOGGED_IN -->	
+					<a href="{U_LOGIN_LOGOUT}" style="text-decoration: none"><button class="dropdown-item" type="button">Connexion</button></a>
+					<a href="{U_REGISTER}" style="text-decoration: none"><button class="dropdown-item" type="button">Créér un compte</button></a>
+					<!-- ELSE -->
+					<a href="{U_ALT_MES_ANNONCES}" style="text-decoration: none"><button class="dropdown-item" type="button">Mes annonces</button></a>
+					<!-- IF TYPE_COMPTE_CANDIDAT -->	
+					<a href="{U_ALT_MES_FAVORIS}" style="text-decoration: none"><button class="dropdown-item" type="button">Mes favoris</button></a>
+					<!-- ELSE -->
+					<!-- <a href="{U_ALT_MES_CV}" style="text-decoration: none"><button class="dropdown-item" type="button">CVThèque</button></a> -->
+					<!-- ENDIF -->
+					<a href="{U_ALT_MON_PROFIL}" style="text-decoration: none"><button class="dropdown-item" type="button">Mon profil</button></a>
+					<a href="{U_ALT_MON_COMPTE}" style="text-decoration: none"><button class="dropdown-item" type="button">Mon compte</button></a>
+					
+					<!-- IF U_ALT_MODERATEUR --> 
+					<a href="{U_ALT_MODERATEUR}" style="text-decoration: none"><button class="dropdown-item" type="button">Admin</button></a>
+					<!-- ENDIF -->
+
+					<!-- IF U_USER_ADMIN --> 
+					<a href="{U_USER_ADMIN}" style="text-decoration: none"><button class="dropdown-item" type="button">Super Admin</button></a>
+					<!-- ENDIF -->
+					
+					<div class="dropdown-divider"></div>
+					
+
+					<a href="{U_LOGIN_LOGOUT}" style="text-decoration: none"><button class="dropdown-item" type="button">Déconnexion</button></a>
+					<!-- ENDIF -->	
+				</div>
+			</div>
+		
+		</div>
+		<!-- ENDIF -->	
+		
+	</div>	
+	<div class="row" >
+		<div class="col">
+
+				
+			<nav id="k9nav-inner" class="navbar navbar-expand-sm navbar-dark container-fluid" style="background-color: #d81212; color: white">	
+				<a class="navbar-brand" href="{U_INDEX}">
+					<img src="{T_IMAGES_PATH}site/accueil/home-interface.png" width="20" height="20" style=" position:relative; bottom:3px; left:5px" alt="Accueil">
+				</a>
+	
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsMonAlternance" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarsMonAlternance">
+					
+					<ul class="navbar-nav w-100">
+
+							<li class="nav-item active dropdown mr-5 " >
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLinkCandidats" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Conseils aux candidats
+								</a>
+	
+								<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkCandidats" style="width: 250px">
+									<a class="dropdown-item" href="{U_ALT_CANDIDATS_SALAIRES}" rel="follow">Les salaires en alternance</a>
+									<div class="dropdown-divider"></div>
+									<a class="dropdown-item" href="{U_ALT_CANDIDATS_CONTRATS}" rel="follow">Les contrats en alternance</a>
+									<div class="dropdown-divider"></div>
+									<a class="dropdown-item" href="{U_ALT_CANDIDATS_STAGES}" rel="follow">Les stages en entreprise</a>
+								</div>
+	
+						
+							</li>
+							
+	
+							<li class="nav-item active dropdown mr-5">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownEntreprises" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Aides aux entreprises
+								</a>
+								
+								<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuEntreprises" style="width: 250px">
+									<a class="dropdown-item"  href="{U_ALT_ENTREPRISES_AIDE_AUX_TPE}" rel="follow">Aides aux TPE</a>
+					
+									<div class="dropdown-divider"></div>
+									<a class="dropdown-item" href="{U_ALT_ENTREPRISES_AIDE_A_APPRENTISSAGE}" rel="follow">Aides à l'apprentissage</a>
+								</div>
+							
+							</li> 
+	
+							
+							<li class="nav-item active dropdown mr-5">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownActualites" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Actualités
+								</a>
+								
+								<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuActualites" style="width: 360px">
+
+										
+									<a class="dropdown-item"  href="{U_ALT_ARTICLE_ALTERNANCE_10_BONNES_RAISONS}" rel="follow">L'alternance en 10 bonnes raisons</a>
+									<div class="dropdown-divider"></div>
+
+									<a class="dropdown-item"  href="{U_ALT_ARTICLE_TRAVAILLER_ET_ECOLE}" rel="follow">Travailler et être à l'école ?</a>
+									<div class="dropdown-divider"></div>
+									
+									<a class="dropdown-item"  href="{U_ALT_ACTUALITE_REFORME}" rel="follow">Rupture du contrat d’apprentissage</a>
+					
+									<div class="dropdown-divider"></div>
+									<a class="dropdown-item"  href="{U_ALT_ACTUALITE_RUPTURE}" rel="follow">Rupture du contrat de professionnalisation</a>
+									
+									<div class="dropdown-divider"></div>
+									<a class="dropdown-item"  href="{U_ALT_LA_REFORME}" rel="follow">La réforme en faveur de l'alternance</a>
+									
+									<div class="dropdown-divider"></div>
+									<a class="dropdown-item"  href="{U_ALT_ARTICLE_TROUVER_FORMATION}" rel="follow">Trouver sa formation en alternance</a>
+									
+									<div class="dropdown-divider"></div>
+									<a class="dropdown-item"  href="{U_ALT_ARTICLE_DECLARATION_REVENUS}" rel="follow">Déclarer ses revenus en alternance</a>
+									
+									<div class="dropdown-divider"></div>
+									<a class="dropdown-item"  href="{U_ALT_ARTICLE_ALTERNANCE_A_30_ANS}" rel="follow">L'alternance jusqu'à 30 ans</a>
+									
+									<div class="dropdown-divider"></div>
+									<a class="dropdown-item"  href="{U_ALT_ARTICLE_RECRUTER_JEUNE_ALTERNANCE}" rel="follow">Recruter un jeune en alternance</a>
+									
+									<div class="dropdown-divider"></div>
+									<a class="dropdown-item"  href="{U_ALT_ARTICLE_ALTERNANCE_VOIX_REUSSITE}" rel="follow">L'alternance : voix de réussite</a>
+									
+									
+
+								</div>
+							
+							</li> 
+							
+							<li class="nav-item  active mr-5">
+								<a class="nav-link" href="{U_ALT_EMPLOIS}" rel="follow">Emplois</a>
+							</li>
+	
+							<li class="nav-item  active mr-5">
+								<a class="nav-link" href="{U_ALT_CONTACT}">Contact</a>
+							</li>
+						
+							
+					</ul>
+	
+				</div>
+				
+			</nav>
+		</div>
+	</div>	
+									
+</div>
+
+		<!-- EVENT overall_header_navbar_before -->
+
+	<!-- EVENT overall_header_page_body_before -->
+
+
+
+
+	<a id="start_here" class="anchor"></a>
+	<div id="page-body" class="page-body" role="main" style="padding-top: 140px;">
+
+		<!-- EVENT overall_header_content_before -->

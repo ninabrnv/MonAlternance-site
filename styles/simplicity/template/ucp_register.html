@@ -1,0 +1,477 @@
+<!-- DEFINE $NAV_SECTION = 'register' --><!-- INCLUDE overall_header.html -->
+
+
+
+<div class="container-fluid">
+	<div calss="row">
+
+		<div class="col">
+
+		</div>
+		<div class="col">
+
+			<div class="container-fluid imageBackRegister" >
+
+				<div class="row">
+					<div class="container pt-4 mt-4 mb-4" style="background-color: rgba(185, 185, 185, 0.527); border: 1px solid #C0C0C0; border-radius: 10px; box-shadow: 3px 3px 6px 0 #A9A9A9; max-width: 650px">
+
+						<div class="container pt-4 mb-4" style="background-color: white; border: 1px solid #C0C0C0; border-radius: 10px; box-shadow: 3px 3px 6px 0 #A9A9A9">
+
+							<ul class="col-sm-12 clearfix" >
+								<!-- DEBUT CONTENU -->
+
+									<div class="container">
+										<div class="row">
+												<div class="col-12">
+							
+							
+							
+												<form id="register" method="post" onsubmit="return validFormRegister()" action="{S_UCP_ACTION}" enctype="multipart/form-data" autocomplete="false">
+							
+												<div class="panel">
+													<div class="inner">
+							
+													<h2>{SITENAME} - {L_REGISTRATION}</h2>
+							
+													<div class="container">
+														<div class="row">
+															<div class="col">
+																<!-- IF ERROR --><div class="alt_error">{ERROR}</div><!-- ENDIF -->
+																<!-- IF L_REG_COND -->
+																<div>{L_REG_COND}</div>
+																	<!-- ENDIF -->
+																	<!-- EVENT ucp_register_credentials_before -->
+															</div>
+														</div>
+														<div class="row">
+															<div class="col">
+																<label for="email"><strong>{L_EMAIL_ADDRESS}{L_COLON} *</strong></label><div class="alt_lien_sous_titre">(Votre email sera votre identifiant de connexion)</div>
+																<input type="email" tabindex="2" name="email" id="email" size="25" maxlength="100" value="{EMAIL}" class="form-control" title="{L_EMAIL_ADDRESS}" autocomplete="off" aria-describedby="Email" />
+															</div>
+														</div>
+														<div class="row">
+															<div class="col">
+																<label for="email"><strong>{L_PASSWORD}{L_COLON} *</strong></label><div class="alt_lien_sous_titre">({L_PASSWORD_EXPLAIN})</div>
+																<input type="password" tabindex="4" name="new_password" id="new_password" size="25" value="{PASSWORD}" class="form-control" title="{L_NEW_PASSWORD}" autocomplete="off" />
+															</div>
+														</div>
+														<div class="row">
+															<div class="col">
+																<label for="password_confirm"><strong>{L_CONFIRM_PASSWORD}{L_COLON} *</strong></label>
+																<input type="password"  tabindex="5" name="password_confirm" id="password_confirm" size="25" value="{PASSWORD_CONFIRM}" class="form-control" title="{L_CONFIRM_PASSWORD}" autocomplete="off" />
+															</div>
+														</div>
+													</div>
+							
+													<!-- EVENT ucp_register_credentials_after -->
+													<hr />
+							
+													<!-- EVENT ucp_register_options_before -->
+							
+							
+													<!-- EVENT ucp_register_profile_fields_before -->
+													<!-- IF .profile_fields -->
+													<div class="container">
+														<div class="row mb-3">
+															<div class="col">
+																<strong>Informations de profil</strong>
+															</div>
+														</div>
+							
+							
+													<!-- IF FALSE -->
+														<!-- BEGIN profile_fields -->
+															<div class="row">
+																<div class="col">
+																	<!-- IF profile_fields.FIELD_ID --><label for="{profile_fields.FIELD_ID}">
+																		<!-- ENDIF -->{profile_fields.LANG_NAME}{L_COLON}
+																		<!-- IF profile_fields.S_REQUIRED --> *<!-- ENDIF --></label>
+																	<!-- IF profile_fields.LANG_EXPLAIN --><br /><span>{profile_fields.LANG_EXPLAIN}</span><!-- ENDIF -->
+																	<!-- IF profile_fields.ERROR --><br /><span class="alt_error">{profile_fields.ERROR}</span><!-- ENDIF -->
+																	{profile_fields.FIELD}	
+																</div>
+															</div>
+															
+														<!-- END profile_fields -->
+													<!-- ENDIF -->
+							
+													<!-- Choix du type de compte -->
+													<fieldset class="form-group">
+													<div class="row">
+														<div class="col">
+															Sélectionnez le type de compte que vous souhaitez créér :
+															<br><br>
+							
+															<div class="form-check">
+																<label class="form-check-label">
+																	<input class="form-check-input" type="radio" name="type_compte" id="typeCompteCandidat" value="candidat" onclick="document.getElementById('champsCandidat').style.display = 'block';document.getElementById('divValiderFormulaire').style.display = 'block'; document.getElementById('champsEntreprise').style.display = 'none';"  {type_compte_candidat_checked}>
+																	<b>Candidat</b>, recherchez une offre d'emploi
+																</label>
+																</div>
+																<div class="form-check">
+																<label class="form-check-label">
+																	<input class="form-check-input" type="radio" name="type_compte" id="typeCompteSociete" value="entreprise" onclick="document.getElementById('champsCandidat').style.display = 'none';document.getElementById('divValiderFormulaire').style.display = 'block'; document.getElementById('champsEntreprise').style.display = 'block';"  {type_compte_societe_checked}>
+																	<b>Entreprise</b>, publiez vos offres d'emploi
+																</label>
+															</div>
+														</div>
+													</div>
+													</fieldset>
+							
+							
+													<!-- Champs personnalisés "Candidat" -->
+													<div class="row" id="champsCandidat" style="display: {display_candidat}">
+														<div class="col-xs-3">
+															<label>Prénom :</label> *
+															<input type="text" class="form-control" tabindex="0" name="prenom" id="prenom" value="{prenom}" />
+															<label>Nom :</label> *
+															<input type="text" class="form-control" tabindex="0" name="nom" id="nom" value="{nom}" />
+															
+															<label>Age :</label> *
+															
+															<select class="selectpicker form-control" tabindex="0" name="date_naissance" id="date_naissance">
+																	<option></option>
+																	<option>15</option>
+																	<option>16</option>
+																	<option>17</option>
+																	<option>18</option>
+																	<option>19</option>
+																	<option>20</option>
+																	<option>21</option>
+																	<option>22</option>
+																	<option>23</option>
+																	<option>24</option>
+																	<option>25</option>
+																	<option>26 et +</option>
+																</select>
+															
+															<label>Ville :</label> *
+															<input type="search" class="form-control" tabindex="0" name="ville" id="ville" value="{ville}" autocomplete="false"/>
+														
+															<!-- <label>Grande ville la plus proche de chez vous :</label>
+															<input type="search" class="form-control" tabindex="0" name="ville_proche" id="ville_proche" value="{ville_proche}" />		
+															 -->
+															<label>Région :</label> *
+															<select class="selectpicker form-control" tabindex="0" name="region" id="region">
+																<option></option>
+																<option>AUVERGNE-RHONE-ALPES</option>
+																<option>BOURGOGNE-FRANCHE-COMTE</option>
+																<option>BRETAGNE</option>
+																<option>CENTRE-VAL DE LOIRE</option>
+																<option>CORSE</option>
+																<option>GUADELOUPE</option>
+																<option>GRAND EST</option>
+																<option>GUYANE</option>
+																<option>HAUTS-DE-FRANCE</option>
+																<option>ILE-DE-FRANCE</option>
+																<option>LA REUNION</option>
+																<option>MARTINIQUE</option>
+																<option>MAYOTTE</option>
+																<option>NORMANDIE</option>
+																<option>NOUVELLE-AQUITAINE</option>
+																<option>OCCITANIE</option>
+																<option>PAYS DE LA LOIRE</option>
+																<option>PROVENCE-ALPES-COTE D'AZUR</option>
+															</select>
+															
+															<label>Domaine d'activité :</label> *
+															<input type="search" class="form-control " tabindex="0" name="domaine_principal" id="domaine_principal" value="{domaine_principal}" onselect="selectionDomaine();" onclick="selectionDomaine();"/>
+															
+															<div id="rowDomaineArtisanat" style="display: none">
+																<label>Domaine artisanat :</label> *
+																<input type="search" class="form-control " id="domaine_artisanat" name="domaine_artisanat" aria-describedby="domaine_artisanat" value="{domaine_artisanat}">
+															</div>
+															
+															
+															<label>Niveau d'étude :</label> *
+							
+															<select class="selectpicker form-control" tabindex="0" name="niveau_etude" id="niveau_etude">
+																<option></option>
+																<option>CAP</option>
+																<option>BEP</option>
+																<option>BAC professionnel</option>
+																<option>BAC général et technologique</option>
+																<option>BAC+1</option>
+																<option>BAC+2</option>
+																<option>BAC+3</option>
+																<option>BAC+4</option>
+																<option>BAC+5</option>
+																<option>BAC+6</option>
+															</select>
+							
+															
+															<label>Dernière école :</label> *
+															<input type="text" class="form-control" tabindex="0" name="derniere_ecole" id="derniere_ecole" value="{derniere_ecole}" />
+															<label>Téléphone mobile :</label>
+															<input type="text" class="form-control" tabindex="0" name="tel_mobile" id="tel_mobile" value="{tel_mobile}" />
+															<label>CV : (Au format PDF uniquement)</label> *
+															<input type="file" name="cv" id="cv" accept="application/pdf">
+														
+														</div>
+													</div>
+							
+												
+
+													<!-- Champs personnalisés "Entreprise" -->
+													<div class="row" id="champsEntreprise" style="display: {display_societe}">
+														<div class="col">
+															<label>Prénom :</label> *
+															<input type="text" class="form-control" tabindex="0" name="societe_ident_prenom" id="societe_ident_prenom" value="{societe_ident_prenom}" />
+															<label>Nom :</label> *
+															<input type="text" class="form-control" tabindex="0" name="societe_ident_nom" id="societe_ident_nom" value="{societe_ident_nom}" />
+															<label>Nom de la société :</label> *
+															<input type="text" class="form-control" tabindex="0" name="societe_nom" id="societe_nom" value="{societe_nom}" />
+															<label>Adresse de la société :</label> *
+															<input type="text" class="form-control" tabindex="0" name="societe_adresse" id="societe_adresse" value="{societe_adresse}" />
+															<label>Code postal :</label> *
+															<input type="text" class="form-control" tabindex="0" name="societe_adresse_cp" id="societe_adresse_cp" value="{societe_adresse_cp}" />
+															<label>Ville :</label> *
+															<input type="text" class="form-control" tabindex="0" name="societe_adresse_ville" id="societe_adresse_ville" value="{societe_adresse_ville}" />
+															
+															<label>Région :</label> *
+															<select class="selectpicker form-control" tabindex="0" name="societe_region" id="societe_region">
+																<option></option>
+																<option>AUVERGNE-RHONE-ALPES</option>
+																<option>BOURGOGNE-FRANCHE-COMTE</option>
+																<option>BRETAGNE</option>
+																<option>CENTRE-VAL DE LOIRE</option>
+																<option>CORSE</option>
+																<option>GUADELOUPE</option>
+																<option>GRAND EST</option>
+																<option>GUYANE</option>
+																<option>HAUTS-DE-FRANCE</option>
+																<option>ILE-DE-FRANCE</option>
+																<option>LA REUNION</option>
+																<option>MARTINIQUE</option>
+																<option>MAYOTTE</option>
+																<option>NORMANDIE</option>
+																<option>NOUVELLE-AQUITAINE</option>
+																<option>OCCITANIE</option>
+																<option>PAYS DE LA LOIRE</option>
+																<option>PROVENCE-ALPES-COTE D'AZUR</option>
+															</select>
+
+															<label>Pays :</label>
+															<select class="selectpicker form-control" tabindex="0" name="societe_adresse_pays" id="societe_adresse_pays">
+																<option>FRANCE</option>
+																<option>ALLEMAGNE</option>
+																<option>ANDORE</option>
+																<option>BELGIQUE</option>
+																<option>ESPAGNE</option>
+																<option>ITALIE</option>
+																<option>LUXEMBOURG</option>
+																<option>MONACO</option>
+																<option>SUISSE</option>
+															</select>
+															
+															
+															<label>Téléphone :</label> *
+															<input type="text" class="form-control" tabindex="0" name="societe_tel" id="societe_tel" value="{societe_tel}" />
+															<label>N° de SIRET :</label> 
+															<input type="text" class="form-control" tabindex="0" name="societe_siret" id="societe_siret" value="{societe_siret}" />
+															<label>N° de TVA intracommunautaire :</label>
+															<input type="text" class="form-control" tabindex="0" name="societe_num_tva_intra" id="societe_num_tva_intra" value="{societe_num_tva_intra}" />
+															<!-- <label>N° d'exonération de TVA :</label>
+															<input type="text" class="form-control" tabindex="0" name="societe_num_exo_tva" id="societe_num_exo_tva" value="{societe_num_exo_tva}" /> -->
+															<label>Secteur d'activité :</label> *
+															<select class="selectpicker form-control" tabindex="0" name="societe_secteur_activite" id="societe_secteur_activite">
+																<option></option>
+																<option>Administration - Fonction publique</option>
+																<option>Agroalimentaire</option>
+																<option>Artisanat</option>
+																<option>Association</option>
+																<option>Automobile</option>
+																<option>Banque - Assurance - Finance</option>
+																<option>Bois - Papier - Carton - Imprimerie</option>
+																<option>Chimie - Parachimie</option>
+																<option>Commerce - Négoce - Distribution</option>
+																<option>Marketing - Communication - Edition</option>
+																<option>BTP - Matériaux de construction</option>
+																<option>Culture - Sport - Loisir</option>
+																<option>Energie</option>
+																<option>Enseignement - Formation - Conseil</option>
+																<option>Environnement - Récupération</option>
+																<option>Equipement - Matériel pour activités professionnelles</option>
+																<option>Fabrication</option>
+																<option>Gestion - Administration des entreprises</option>
+																<option>Hôtellerie - Restauration</option>
+																<option>Immobilier</option>
+																<option>Industrie pharmaceutique</option>
+																<option>Informatique</option>
+																<option>Logistique - Transport</option>
+																<option>Matériel électrique - Electronique - Optique</option>
+																<option>Mécanique - Métallurgie</option>
+																<option>Minérais - Minéraux - Sidérurgie</option>
+																<option>Professions juridiques</option>
+																<option>Santé - Action sociale</option>
+																<option>Service aux particuliers - Collectivités - Entreprises</option>
+																<option>Textile - Habillement - Chaussure</option>
+															</select>
+															
+															<label>Effectif :</label> *
+															<input type="text" class="form-control" tabindex="0" name="societe_effectif" id="societe_effectif" value="{societe_effectif}" />
+															
+														</div>
+													</div>
+							
+													
+												
+							
+													</div>
+													<!-- ENDIF -->
+							
+													<!-- EVENT ucp_register_profile_fields_after -->
+							
+													</div>
+												</div>
+							
+												<div id="divValiderFormulaire" style="display: {display_submit_form}">
+													<div class="panel">
+														<div class="inner">
+															<div class="container mt-3">
+																<div class="row">
+																	<div class="col" style="text-align: center;">
+																		<input type="checkbox" tabindex="6"  name="conditions" id="conditions"> <a href="{U_ALT_CGU}" target="_blank">J'accepte les conditions générales d'utilisation</a>
+																	</div>	
+																</div>
+															</div>
+														</div>
+													</div>
+							
+													<div class="panel">
+														<div class="inner">
+															<!-- EVENT ucp_register_buttons_before -->	
+															<div class="container">
+																<div class="row">
+																		<div class="col" style="text-align: center;">
+																			
+																			{S_HIDDEN_FIELDS}
+																			
+																			<input type="submit" tabindex="7" name="submit" id="submit" value="Inscription" class="btn btn-success default-submit-action" />
+																			{S_FORM_TOKEN}
+																			
+																		</div>	
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												</form>
+							
+											</div>
+										</div>
+									</div>
+							
+									<script>
+
+
+											function validFormRegister() {
+	
+												var typeCompteCandidat = document.getElementById('typeCompteCandidat').checked;
+												var typeCompteEntreprise = document.getElementById('typeCompteSociete').checked;
+
+												//  alert('typeCompteCandidat :' + typeCompteCandidat);
+												 // alert('typeCompteEntreprise :' + typeCompteEntreprise);
+
+												if (typeCompteCandidat) {
+
+													var region = document.getElementById('region').value;
+													var prenom = document.getElementById('prenom').value;
+													var nom = document.getElementById('nom').value;
+													var date_naissance = document.getElementById('date_naissance').value;
+													var ville = document.getElementById('ville').value;
+													var domaine_principal = document.getElementById('domaine_principal').value;
+													var domaine_artisanat = document.getElementById('domaine_artisanat').value;
+													var niveau_etude = document.getElementById('niveau_etude').value;
+													var derniere_ecole = document.getElementById('derniere_ecole').value;
+													//var cv = document.getElementById('cv').value;
+
+													var cv = $('#cv').val(); 
+													if (cv =='') 
+													{ 
+														alert("Erreur : Vous devez obligatoirement importer votre CV au format PDF"); 
+														return false; 
+													} 
+
+													if(region != '' && prenom != '' && nom != '' && date_naissance != ''
+													 && ville != '' && domaine_principal != ''
+													 && niveau_etude != '' && derniere_ecole != ''
+												//	 && cv != ''
+													 ) {
+
+														if (domaine_principal == 'ARTISANAT' && domaine_artisanat == '') {
+															document.getElementById('rowDomaineArtisanat').style.display = 'block';
+															alert("Erreur : Pour le domaine d'activité ARTISANAT, vous devez spécifié le domaine d'ARTISANAT spécifique.");
+															return false;
+														} else {
+															return true;
+														}
+													}
+													else
+													{
+														alert("Erreur : Veuillez remplir les champs obligatoires marqués d'une étoile (*).");
+														return false;
+													}
+
+
+
+												} else if (typeCompteEntreprise) {
+
+													var societe_ident_prenom = document.getElementById('societe_ident_prenom').value;
+													var societe_ident_nom = document.getElementById('societe_ident_nom').value;
+													var societe_nom = document.getElementById('societe_nom').value;
+													var societe_adresse = document.getElementById('societe_adresse').value;
+													var societe_adresse_cp = document.getElementById('societe_adresse_cp').value;
+													var societe_adresse_ville = document.getElementById('societe_adresse_ville').value;
+													var societe_region = document.getElementById('societe_region').value;
+													var societe_tel = document.getElementById('societe_tel').value;
+													var societe_secteur_activite = document.getElementById('societe_secteur_activite').value;
+													var societe_effectif = document.getElementById('societe_effectif').value;
+													
+													
+													if(societe_ident_prenom != '' && societe_ident_nom != '' && societe_nom != '' && societe_adresse != ''
+													 && societe_adresse_cp != '' && societe_adresse_ville != ''
+													 && societe_region != '' && societe_tel != ''
+													 && societe_secteur_activite != '' && societe_effectif != ''
+													 ) {
+														return true;
+													
+													}
+													else
+													{
+														alert("Erreur : Veuillez remplir les champs obligatoires marqués d'une étoile (*).");
+														return false;
+													}
+
+
+												} else {
+													return false;
+												}
+
+
+											
+											}
+											
+										</script>
+
+
+								<!-- FIN CONTENU -->
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>	
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+<div class="pb-5"></div>
+<!-- INCLUDE overall_footer.html -->

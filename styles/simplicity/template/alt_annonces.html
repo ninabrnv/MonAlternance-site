@@ -1,0 +1,496 @@
+<!-- INCLUDE overall_header.html -->
+<form action="{U_ANNONCES}" method="POST" autocomplete="off">
+<!-- formulaire recherche + Pub -->
+<br>
+<div class="container-fluid mt-3">
+    <div class="row">
+       
+       <!-- formulaire recherche  -->
+       <div class="col-12 col-md-6">
+            <div class="container-fuild p-2" style="border-style: solid; border-width: thin; border-color: gray;  background-color: rgba(255, 255, 255, 0.897);  box-shadow: 8px 8px 8px #aaa; min-width: 300px" >
+               <div class="row">
+                    <!-- formulaire recherche : champs  -->    
+                    <div class="col p-2">
+                            <input  type="search" 
+                            class="form-control alt-form-image-recherche m-1" 
+                            id="domaine" 
+                            name="domaine" 
+                            aria-describedby="domaine" 
+                            placeholder="DOMAINE (ex : commerce)" 
+                            value="{domaine}"
+                            style="width: 250px; font-size: 0.8em"
+                            onselect="selectionDomaine();" onclick="selectionDomaine();"
+                            >
+                            
+                            <input type="search" class="form-control alt-form-image-recherche m-1" 
+                            id="domaineArtisanat" 
+                            name="domaineArtisanat" 
+                            aria-describedby="domaineArtisanat" 
+                            placeholder="Domaine artisanat" 
+                            value="{domaineArtisanat}"
+                            style="width: 250px; display: {display_artisanat}; font-size: 0.8em"
+                            >
+
+                             <!-- 
+                            <select class="form-control alt-form-image-ville mt-2" id="region" name="region" style="width: 250px;">
+                                <option value="0">Toutes les régions</option>
+                                BEGIN regions      
+                                <option value="{regions.CODE}" {regions.SELECTED}>{regions.NOM}</option>
+                                END regions    
+                            </select>
+                             -->    
+
+                             <input type="search" class="form-control alt-form-image-ville m-1" id="ville1" name="ville1" placeholder="VILLE" style="width: 250px; font-size: 0.8em" value="{ville1}">  
+                             {erreurVille}
+                             <input type="search" class="form-control alt-form-image-ville m-1" id="ville2" name="ville2" placeholder="VILLE" style="width: 250px; display: {display_ville2}; font-size: 0.8em" value="{ville2}">  
+
+                             <input type="search" class="form-control alt-form-image-ville m-1" id="ville3" name="ville3" placeholder="VILLE" style="width: 250px; display: {display_ville3}; font-size: 0.8em" value="{ville3}"> 
+
+                             <a id="ajouterVille" href="javascript:ajouterVille();" class="ml-2" style="display: {display_ajouterVille};color: black" ><img src="{T_IMAGES_PATH}site/accueil/plus.png" style="height: 15px; width: 15px">&nbsp;Ajouter une ville</a>
+                          
+
+                    </div>
+                    <!-- formulaire recherche : cases à cocher  -->    
+                    <div class="col">
+                        <label class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" {CheckedTypeContratPro} name="typeContratPro" value="professionnalisation">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description" style="font-size: 0.8em">Contrat de professionnalisation</span>
+                        </label>
+                        <br>
+        
+                        <label class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" {CheckedTypeContratApprentissage} name="typeContratApprentissage" value="apprentissage">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description" style="font-size: 0.8em">Contrat d'apprentissage</span>
+                        </label>
+                        <br>
+        
+                        <label class="custom-control custom-checkbox" >
+                            <input type="checkbox" class="custom-control-input" {CheckedTypeContratStage} name="typeContratStage" value="stage">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description" style="font-size: 0.8em">Stage</span>
+                        </label>
+                        <br>
+                        <a href="{U_INDEX}" style="color: rgb(146, 146, 146); text-decoration: underline; font-size: 0.8em ">Nouvelle recherche</a>
+                    </div>
+               </div> 
+               <!-- bouton rechercher  -->
+               <div class="row" style="text-align: center">
+                    <div class="col">   
+                        <button type="submit" class="btn btn-primary " style="width: 150px; height: 45px;">Rechercher</button>
+                    </div>
+                </div>
+            </div>   
+       </div> 
+       
+       <!--  Pub -->   
+       
+       
+       <div class="col-12 col-md-6">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+           
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-5250430950478493"
+                data-ad-slot="4948269035"
+                data-ad-format="auto"></ins>
+            <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div> 
+       
+    </div>          
+</div>
+</form>
+
+<!-- résultat recherche -->
+<div class="container-fluid mt-5 mb-2">
+    <div class="row" >
+        <div class="col">
+            {resultats_recherche}
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid mb-5">
+    <nav class="nav nav-tabs" id="tabAnnonces" role="tablist">
+        <!-- BEGIN villes -->     
+        <a class="nav-item nav-link {villes.ACTIVE}" id="nav-tab-{villes.NUM_ONGLET}" data-toggle="tab" href="#nav-ville-{villes.NUM_ONGLET}" role="tab" aria-controls="nav-home" aria-selected="true">{villes.VILLE}</a>
+        <!-- END villes --> 
+    </nav>
+
+    <div class="row">
+        <!-- Liste des annonces -->
+        <div class="col-12 col-sm-12 col-lg-8 col-xl-8 tab-content" >   
+            <!-- BEGIN villes -->
+            <div class="tab-pane fade {villes.SHOW} {villes.ACTIVE}" id="nav-ville-{villes.NUM_ONGLET}" role="tabpanel" aria-labelledby="nav-tab-{villes.NUM_ONGLET}">
+                <!-- BEGIN villes.annonce -->  
+
+                <!-- Annonce : Modal  -->
+                <div class="modal fade" id="modalAnnonce{villes.annonce.ID}" tabindex="-1" role="dialog" aria-labelledby="Annonce" aria-hidden="true">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <div class="alt_lien_sous_titre">Réf : {villes.annonce.REF}</div>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container-fluid pl-0">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h5 class="modal-title" id="exampleModalLabel" style="color: #007bff">{villes.annonce.TITRE}</h5>
+                                            <div style="color: #d81212;">{villes.annonce.LIEU}</div>
+                                        </div>
+
+                                        <div class="col" style="text-align: right; padding: 0px">
+                                            <!-- IF TYPE_COMPTE_RECRUTEUR -->
+                                            &nbsp;
+                                            <!-- ELSE -->
+                                            
+                                                <!-- IF S_USER_LOGGED_IN -->
+                                                
+                                                    <!-- IF villes.annonce.DEJA_FAVORIS -->
+                                                    <a onclick="favorisSuppr({villes.annonce.ID})" data-dismiss="modal" style="cursor: pointer"><img src="{T_IMAGES_PATH}site/accueil/btn_favoris_jaune_mini.png" id="Mcoeur{villes.annonce.ID}" title="Supprimer cette annonce de vos favoris"></a>
+                                                    <!-- ELSE -->
+                                                    <a onclick="favoris({villes.annonce.ID})" data-dismiss="modal" style="cursor: pointer"><img src="{T_IMAGES_PATH}site/accueil/btn_favoris_noir_mini.png" id="Mcoeur{villes.annonce.ID}" title="Ajouter cette annonce dans vos favoris"></a>
+                                                    <!-- ENDIF -->  
+                                                
+                                                <!-- ENDIF -->
+                                                <a style="cursor: pointer" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fmon-alternance.fr%2Fannonces.php%3Fid%3D{villes.annonce.ID}"><img src="{T_IMAGES_PATH}site/accueil/btn_facebook_noir_mini.png" id="Mfacebook{villes.annonce.ID}" title="Publier cette offre sur votre mur Facebook"></a>
+                                                
+                                                <!-- IF S_USER_LOGGED_IN -->
+                                                
+
+                                                    <!-- IF villes.annonce.DEJA_POSTULER -->
+                                                    <button onclick="alert('Vous avez déjà postulé à cette annonce.');"  class="unstyled-button" style="cursor: pointer"><img src="{T_IMAGES_PATH}site/accueil/btn_postuler_gris_mini.png" title="'Vous avez déjà postulé à cette annonce"></button>
+                                                    <!-- ELSE -->
+
+
+                                                        <!-- IF CV -->
+                                                        <button data-toggle="modal" class="unstyled-button" data-target="#modalCommentaire{villes.annonce.ID}" data-dismiss="modal" data-id="{villes.annonce.ID}" style="cursor: pointer"><img src="{T_IMAGES_PATH}site/accueil/btn_postuler_noir_mini.png" id="M2postuler{villes.annonce.ID}"  title="Postuler à cette annonce"></button>
+                                                        <!-- ELSE -->
+                                                        <button onclick="alert('Vous devez importer votre cv sur votre profil pour postuler à une annonce.');"  class="unstyled-button" style="cursor: pointer"><img src="{T_IMAGES_PATH}site/accueil/btn_postuler_noir_mini.png" title="Postuler à cette annonce"></button>
+                                                        <!-- ENDIF -->  
+                                                    <!-- ENDIF -->    
+                                                        
+                                                <!-- ELSE -->
+                                                <a href="{U_LOGIN_LOGOUT}" style="cursor: pointer" title="postuler"><img src="{T_IMAGES_PATH}site/accueil/btn_postuler_noir_mini.png" title="Postuler à cette annonce"></a>
+                                                <!-- ENDIF -->
+                                                
+                                                <!-- <a onclick="postuler({villes.annonce.ID})" data-dismiss="modal" style="cursor: pointer"><img src="{T_IMAGES_PATH}site/accueil/btn_postuler_noir_mini.png" id="M2postuler{villes.annonce.ID}"  title="Postuler à cette annonce"></a> -->
+                                        <!-- ENDIF -->
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                                <hr style="height: 1px; color: rgb(172, 172, 172); background-color: rgb(177, 177, 177); width: 100%; border: none;">
+                                <b>Type de contrat :</b> {villes.annonce.TYPE_CONTRAT}
+                                <br><b>Publiée le :</b> {villes.annonce.PUBLIEE_LE}
+                                <br><b>Domaine :</b> {villes.annonce.DOMAINE} {villes.annonce.DOMAINE_ARTISANAT}
+                                <br><b>Date de début :</b> {villes.annonce.DATE_DE_DEBUT}
+                                <br><b>Durée :</b> {villes.annonce.DUREE}
+                                <br>
+                                <br><b>Descriptif : </b>
+                                <br> 
+                                {villes.annonce.DESCRIPTION}
+
+                                    
+                            </div>
+                            <div class="modal-footer">
+                               
+                                            <!-- IF U_USER_ADMIN -->
+                                            <!-- <div class="dropdown">
+                                                <button class="btn btn-sm btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    Admin
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                    <a class="dropdown-item" data-dismiss="modal" onclick="valider({villes.annonce.ID})">Valider annonce</a>
+                                                    <a class="dropdown-item" data-dismiss="modal" onclick="supprimer({villes.annonce.ID})">Supprimer annonce</a>
+                                                </div>
+                                            </div> -->
+                                            <!-- ENDIF -->
+                                        <!-- <a onclick="postuler({villes.annonce.ID})" data-dismiss="modal" style="cursor: pointer"><img src="{T_IMAGES_PATH}site/accueil/btn_postuler_noir_mini.png" id="Mpostuler{villes.annonce.ID}"  title="Postuler à cette annonce"></a> -->
+                              
+                                   
+                              
+                            </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                <!-- Annonce : Encard -->    
+                <div class="container card p-3 mt-3" style="border-radius: 10px; box-shadow: 3px 3px 6px 0 #A9A9A9; ">
+
+                    <div class="row">
+                        <div class="col">
+                            <div id="message{villes.annonce.ID}" style="color: green;font-weight: bold"></div>
+                            <a href="#modalAnnonce{villes.annonce.ID}" class="alt_lien" style="text-decoration: underline" data-toggle="modal" title="{villes.annonce.TITRE}">{villes.annonce.TITRE_COURT}</a>
+                            
+                        </div>
+                        <div class="col-auto">
+                            <!-- IF TYPE_COMPTE_RECRUTEUR -->
+                            &nbsp;
+                            <!-- ELSE -->
+
+                                <!-- IF S_USER_LOGGED_IN -->
+                               
+                                    <!-- IF villes.annonce.DEJA_FAVORIS -->
+                                    <a onclick="favorisSuppr({villes.annonce.ID})" style="cursor: pointer"><img src="{T_IMAGES_PATH}site/accueil/btn_favoris_jaune_mini.png" id="coeur{villes.annonce.ID}" title="Supprimer cette annonce de vos favoris"></a>
+                                    <!-- ELSE -->
+                                    <a onclick="favoris({villes.annonce.ID})" style="cursor: pointer"><img src="{T_IMAGES_PATH}site/accueil/btn_favoris_noir_mini.png" id="coeur{villes.annonce.ID}" title="Ajouter cette annonce dans vos favoris"></a>
+                                    <!-- ENDIF -->
+                               
+                                <!-- ELSE -->
+                                <a href="{U_LOGIN_LOGOUT}" style="cursor: pointer"><img src="{T_IMAGES_PATH}site/accueil/btn_favoris_noir_mini.png" id="coeur{villes.annonce.ID}" title="Ajouter cette annonce dans vos favoris"></a>
+                                <!-- ENDIF -->
+                                <a style="cursor: pointer" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fmon-alternance.fr%2Fannonces.php%3Fid%3D{villes.annonce.ID}"><img src="{T_IMAGES_PATH}site/accueil/btn_facebook_noir_mini.png" id="facebook{villes.annonce.ID}" title="Publier cette offre sur votre mur Facebook"></a>
+                                
+                                <!-- IF S_USER_LOGGED_IN -->
+                            
+                                    <!-- IF villes.annonce.DEJA_POSTULER -->
+                                        <button onclick="alert('Vous avez déjà postulé à cette annonce.');"  class="unstyled-button" style="cursor: pointer"><img src="{T_IMAGES_PATH}site/accueil/btn_postuler_gris_mini.png" title="'Vous avez déjà postulé à cette annonce"></button>
+                                    <!-- ELSE -->
+                                        <!-- IF CV -->
+                                        <button data-toggle="modal" class="unstyled-button" data-target="#modalCommentaire{villes.annonce.ID}" data-id="{villes.annonce.ID}" style="cursor: pointer"><img src="{T_IMAGES_PATH}site/accueil/btn_postuler_noir_mini.png" id="postuler{villes.annonce.ID}"  title="Postuler à cette annonce"></button>
+                                        <!-- ELSE -->
+                                        <button onclick="alert('Vous devez importer votre cv sur votre profil pour postuler à une annonce.');"  class="unstyled-button" style="cursor: pointer"><img src="{T_IMAGES_PATH}site/accueil/btn_postuler_noir_mini.png" title="Postuler à cette annonce"></button>
+                                        <!-- ENDIF -->    
+                                    <!-- ENDIF -->   
+
+
+                                <!-- ELSE -->
+                                <a href="{U_LOGIN_LOGOUT}" style="cursor: pointer" title="postuler"><img src="{T_IMAGES_PATH}site/accueil/btn_postuler_noir_mini.png" title="Postuler à cette annonce"></a>
+                                <!-- ENDIF -->
+                            <!-- ENDIF -->
+                        </div>
+                    </div>    
+                    
+                    <div class="row">
+                        <div class="col">
+                            <div class="alt_lien_second">{villes.annonce.LIEU}</div>
+                        </div>
+                    </div>  
+                    <div class="row">
+                        <div class="col">
+                            <div class="alt_lien_sous_titre">{villes.annonce.DOMAINE} {villes.annonce.DOMAINE_ARTISANAT}</div>
+                        </div>
+                    </div> 
+                    <div class="row">
+                        <div class="col">
+                            <div class="alt_lien_small">{villes.annonce.TYPE_CONTRAT}</div>
+                        </div>
+                    </div> 
+                    <div class="row">
+                        <div class="col">
+                            {villes.annonce.DESCRIPTION_COURT}   
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col" style="text-align: right">
+                            <div class="alt_lien_sous_titre">{villes.annonce.PUBLIEE_LE}</div>
+                        </div>
+                    </div>
+                </div>      
+                
+                <!-- Modal commetnaire postuler -->
+                <div class="modal fade" id="modalCommentaire{villes.annonce.ID}" tabindex="-1" role="dialog" aria-labelledby="modalCommentaire" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Ajouter un commentaire à l'employeur</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                (Ceci n'est pas obligatoire)
+                                <br><br>
+                                <div class="form-group">
+                                    <label for="commentairePostuler{villes.annonce.ID}">Commentaire :</label>
+                                    <textarea class="form-control" rows="5" id="commentairePostuler{villes.annonce.ID}"></textarea>
+                                </div>
+                    
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="postuler({villes.annonce.ID})">Postuler</button>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- fin Modal commetnaire postuler -->
+                
+                
+                
+                <!-- END villes.annonce --> 
+
+            </div>
+            <!-- END villes --> 
+        </div>
+        <!-- Carte -->
+        <!-- <div style="position: fixed; right: 0px; left: auto;top: 144px ;"></div> -->
+        <div class="col-12 col-sm-12 col-lg-4 col-xl-4 mt-2" >
+            <!-- IF affiche_carte -->  
+                <!-- INCLUDE alt_accueil_map.html -->
+            <!-- ENDIF -->
+        </div>
+    </div>
+
+</div>
+
+
+
+<script>
+
+
+
+
+function favoris(annonceId) {
+    $.ajax({
+    url : '{U_ALT_AJAX}',
+    type : 'POST', 
+    data : 'action=favoris&annonceId=' + annonceId, 
+    dataType : 'html',
+    success : function(code_html, statut){ 
+
+        // alert(code_html);
+
+    document.getElementById("coeur"+annonceId).src = '{T_IMAGES_PATH}site/accueil/btn_favoris_jaune_mini.png';
+    document.getElementById("Mcoeur"+annonceId).src = '{T_IMAGES_PATH}site/accueil/btn_favoris_jaune_mini.png';
+    document.getElementById("message"+annonceId).innerHTML = 'Annonce ajoutée aux favoris!'; 
+    console.log('Annonce '+annonceId+' en favoris !');
+
+    },
+
+    error : function(resultat, statut, erreur){
+        alert(erreur);
+        console.log(resultat);
+    },
+    complete : function(resultat, statut){
+
+    }
+
+    });
+}
+
+function favorisSuppr(annonceId) {
+    $.ajax({
+    url : '{U_ALT_AJAX}',
+    type : 'POST', 
+    data : 'action=supprimerFavoris&annonceId=' + annonceId, 
+    dataType : 'html',
+    success : function(code_html, statut){ 
+
+        // alert(code_html);
+
+    document.getElementById("coeur"+annonceId).src = '{T_IMAGES_PATH}site/accueil/btn_favoris_noir_mini.png';
+    document.getElementById("Mcoeur"+annonceId).src = '{T_IMAGES_PATH}site/accueil/btn_favoris_noir_mini.png';
+    document.getElementById("message"+annonceId).innerHTML = 'Annonce supprimée de vos favoris'; 
+    
+
+    },
+
+    error : function(resultat, statut, erreur){
+        alert(erreur);
+        console.log(resultat);
+    },
+    complete : function(resultat, statut){
+
+    }
+
+    });
+}
+
+    function postuler(annonceId) {
+
+    var commentaire = '';
+    commentaire = document.getElementById("commentairePostuler"+annonceId).value;
+
+    $.ajax({
+    url : '{U_ALT_AJAX}',
+    type : 'POST', 
+    data : 'action=postuler&annonceId=' + annonceId + '&commentaire=' + commentaire, 
+    dataType : 'html',
+    success : function(code_html, statut){ 
+
+        // alert(code_html);
+    
+    
+    document.getElementById("message"+annonceId).innerHTML = 'Vous venez de postuler à cette annonce !'; 
+    document.getElementById("postuler"+annonceId).src = '{T_IMAGES_PATH}site/accueil/btn_postuler_gris_mini.png';
+    document.getElementById("M2postuler"+annonceId).src = '{T_IMAGES_PATH}site/accueil/btn_postuler_gris_mini.png';
+    console.log('Postulé sur l\'annonce '+annonceId);
+
+    },
+
+    error : function(resultat, statut, erreur){
+        alert(erreur);
+    },
+    complete : function(resultat, statut){
+
+    }
+
+    });
+    }
+
+    function supprimer(annonceId) {
+    $.ajax({
+    url : '{U_ALT_AJAX}',
+    type : 'POST', 
+    data : 'action=supprimer&annonceId=' + annonceId, 
+    dataType : 'html',
+    success : function(code_html, statut){ 
+
+        // alert(code_html);
+    
+    
+    document.getElementById("message"+annonceId).innerHTML = 'Vous venez de supprimer cette annonce'; 
+
+
+    },
+
+    error : function(resultat, statut, erreur){
+        alert(erreur);
+    },
+    complete : function(resultat, statut){
+
+    }
+
+    });
+    }
+
+    function valider(annonceId) {
+    $.ajax({
+    url : '{U_ALT_AJAX}',
+    type : 'POST', 
+    data : 'action=valider&annonceId=' + annonceId, 
+    dataType : 'html',
+    success : function(code_html, statut){ 
+
+        // alert(code_html);
+    
+    
+    document.getElementById("message"+annonceId).innerHTML = 'Vous venez de valider cette annonce'; 
+
+
+    },
+
+    error : function(resultat, statut, erreur){
+        alert(erreur);
+    },
+    complete : function(resultat, statut){
+
+    }
+
+    });
+    }
+
+
+</script>
+
+
+
+<!-- INCLUDE overall_footer.html -->

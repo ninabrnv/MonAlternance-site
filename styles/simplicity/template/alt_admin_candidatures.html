@@ -1,0 +1,174 @@
+<!-- INCLUDE overall_header.html -->
+
+
+<h1 class="ml-2">Liste des 100 dernières candidataures</h1>
+
+<div class="container-fluid" > 
+    <div class="row" >  
+        <div class="col-3 col-md-2">
+          
+              <a class="nav-link active" href="{U_ALT_MODERATEUR}">Accueil admin</a>
+              <a class="nav-link" href="{U_ALT_ADMIN_ENTREPRISES}">Comptes entreprises</a>
+              <a class="nav-link" href="{U_ALT_ADMIN_CANDIDATS}">Comptes candidats</a>
+              <a class="nav-link" href="{U_ALT_ADMIN_ADMINS}">Compte admins</a>
+              <a class="nav-link" href="{U_ALT_ADMIN_ANNONCES}">Annonces</a>
+              <a class="nav-link" href="{U_ALT_ADMIN_CANDIDATURES}"><b>Dernières candidatures</b></a>
+              <a class="nav-link" href="{U_ALT_ADMIN_PAIEMENTS}">Derniers paiements</a>
+              <a class="nav-link" href="{U_ALT_ADMIN_CVTHEQUE}">CVthèque</a>
+              
+            
+        </div>
+        <div class="col-9 col-md-10" >
+            <div class="card d-none d-md-block d-lg-block d-xl-block">
+                <div class="card-header">
+                    Filtres sur la liste des entreprises
+                </div>
+                <form id="formFiltreAnnonces" class="p-2" method="post" action="{U_ALT_ADMIN_CANDIDATURES}">
+                    <input type="hidden" name="action" value="filtreCandidatures">
+                    <div class="form-row align-items-center">
+                        <div class="col-auto my-1">
+                                <label class="sr-only" for="filtreRef">Réf</label>
+                                <input type="text" class="form-control mb-2" name="filtreRef" id="filtreRef" placeholder="Réf" value="{filtreRef}">
+                            </div>
+                        <div class="col-auto my-1">
+                            <label class="sr-only" for="filtreTitre">Titre</label>
+                            <input type="text" class="form-control mb-2" name="filtreTitre" id="filtreTitre" placeholder="Titre" value="{filtreTitre}">
+                        </div>
+                        <div class="col-auto my-1">
+                            <label class="sr-only" for="filtreStatut">Statut</label>
+                            <input type="text" class="form-control mb-2" name="filtreStatut" id="filtreStatut" placeholder="Statut" value="{filtreStatut}">
+                        </div>
+                       
+                        <div class="col-auto my-1">
+                            <label class="sr-only" for="filtreTypeContrat">Type contrat</label>
+                            <input type="text" class="form-control mb-2" name="filtreTypeContrat" id="filtreTypeContrat" placeholder="Type contrat" value="{filtreTypeContrat}">
+                        </div>
+                        
+                  
+                        <div class="col-auto my-1">
+                            <label class="sr-only" for="filtreDomaineActivite">Domaine activité</label>
+                            <input type="text" class="form-control mb-2" name="filtreDomaineActivite" id="filtreDomaineActivite" placeholder="Domaine activité" value="{filtreDomaineActivite}">
+                        </div>
+                        <div class="col-auto my-1">
+                                <label class="sr-only" for="filtreDomaineArtisanat">Domaine artisanat</label>
+                                <input type="text" class="form-control mb-2" name="filtreDomaineArtisanat" id="filtreDomaineArtisanat" placeholder="Domaine artisanat" value="{filtreDomaineArtisanat}">
+                            </div>
+
+                     
+
+                        <div class="col-auto my-1">
+                                <label class="sr-only" for="filtreRegion">Région</label>
+                                <input type="text" class="form-control mb-2" name="filtreRegion" id="filtreRegion" placeholder="Région" value="{filtreRegion}">
+                            </div>
+                     
+                            <div class="col-auto my-1">
+                        <label class="sr-only" for="filtreVille">Ville</label>
+                         <input type="text" class="form-control mb-2" name="filtreVille" id="filtreVille" placeholder="Ville" value="{filtreVille}">
+                      </div>
+                      
+                      <div class="col-auto my-1">
+                            <label class="sr-only" for="filtreEntreprise">Entreprise</label>
+                            <input type="text" class="form-control mb-2" name="filtreEntreprise" id="filtreEntreprise" placeholder="Entreprise" value="{filtreEntreprise}">
+                        </div>
+                        <div class="col-auto my-1">
+                            <label class="sr-only" for="filtreContact">Contact</label>
+                            <input type="text" class="form-control mb-2" name="filtreContact" id="filtreContact" placeholder="Contact" value="{filtreContact}">
+                        </div>
+                        <div class="col-auto my-1">
+                                <label class="sr-only" for="filtrePaye">Payé</label>
+                                <input type="text" class="form-control mb-2" name="filtrePaye" id="filtrePaye" placeholder="Payé" value="{filtrePaye}">
+                            </div>
+                    
+                        <div class="col-auto my-1">
+                            <button type="submit" class="btn btn-primary">Rechercher</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <br>   
+            
+            <div class="container-fluid">
+                  
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>&nbsp;#</th>
+
+                                    <th>Date candidature</th>
+                                    <th>Email candidat</th>
+                                    <th>Nom</th>
+                                    <th>Prénom</th>
+                                    <th>Commentaire</th>
+                                    <th>Statut</th>
+
+                                    <th>Réf</th>
+                                    <th>Titre</th>
+                                    <th>Contrat</th>
+                                    <th>Domaine</th>
+                                    <th>Artisanat</th>
+                                    <th>Region</th>
+                                    <th>Ville</th>
+                                    
+                                    <th>Début</th>
+                                    <th>Durée</th>
+                                    <th>Client nom</th>
+                                    <th>Client contact</th>
+                                 
+                                    <th>Statut</th>
+                                    <th>Date création</th>
+                                    <th>Date publication</th>
+                                    <th>Payé</th>
+                                    <th>Date paiement</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody >
+                                    <!-- BEGIN candidatures -->  
+                                    <tr>
+                                        <td><input class="ml-1" type="checkbox" class="form-check-input" id="selectionnerAnnonce{annonces.id}"></td>
+                                       
+                                        <td nowrap>{candidatures.candidature_date}</td>
+                                        <td nowrap>{candidatures.candidat_email}</td>
+                                        <td nowrap>{candidatures.candidat_nom}</td>
+                                        <td nowrap>{candidatures.candidat_prenom}</td>
+                                        <td nowrap><a href="#" title="{candidatures.candidature_commentaire}">commentaire</a></td>
+                                        <td nowrap>{candidatures.candidature_statut}</td>
+                                     
+                                       
+                                       
+                                        <td nowrap>{candidatures.ref}</td>
+                                        <td nowrap><a href="{candidatures.lien_annonce}" target="_blank">{candidatures.titre}</a></td>
+                                        <td nowrap>{candidatures.contrat_type}</td>
+                                        <td nowrap>{candidatures.domaine}</td>
+                                        <td nowrap>{candidatures.domaine_artisanat}</td>
+                                        <td nowrap>{candidatures.region}</td>
+                                        <td nowrap>{candidatures.ville}</td>
+                                        
+                                        <td nowrap>{candidatures.date_debut}</td>
+                                        <td nowrap>{candidatures.duree}</td>
+                                        <td nowrap>{candidatures.client_nom}</td>
+                                        <td nowrap>{candidatures.client_contact}</td>
+                                   
+                                        <td nowrap>{candidatures.statut}</td> 
+                                        <td nowrap>{candidatures.date_creation}</td>        
+                                        <td nowrap>{candidatures.date_publication}</td>        
+                                        <td nowrap>{candidatures.paye}</td>        
+                                        <td nowrap>{candidatures.date_paiement}</td>  
+                                        <td nowrap><a href="#" title="{candidatures.description_court}">description</a></td>                     
+                                    </tr>
+                                    <!-- END candidatures --> 
+                                </tbody>
+                            </table>
+                       
+                    </div>
+        </div>
+    </div>
+</div>
+
+<br><br><br>
+
+<!-- INCLUDE overall_footer.html -->
+
+
+
+                    

@@ -1,0 +1,51 @@
+
+                <div class="container-fluid card p-3 mt-0">
+                    <div class="row" >
+                        <div class="col" style="font-weight: bold; ">Réf.</div>
+                        <div class="col" style="font-weight: bold">Intitulé du poste</div>
+                        <div class="col" style="font-weight: bold">Lieu</div>
+                        <div class="col" style="font-weight: bold">Type contrat</div>
+                        <div class="col" style="font-weight: bold">Date de publication de l'annonce</div>
+                        <div class="col" style="font-weight: bold">Nombre de candidatures</div>
+                        <div class="col" style="font-weight: bold">Statut</div>
+                        <div class="col" style="font-weight: bold">Actions</div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <hr>
+                        </div>
+                    </div>
+
+                    <!-- BEGIN mesannonces -->  
+                    <div class="row">
+                        <div class="col">{mesannonces.REF}</div>
+                        <div class="col"><a href="{mesannonces.LIEN}">{mesannonces.TITRE}</a></div>
+                        <div class="col">{mesannonces.LIEU}</div>
+                        <div class="col">{mesannonces.TYPE_CONTRAT}</div>
+                        <div class="col">{mesannonces.DATE_PUBLICATION}</div>
+                        <div class="col" style="text-align: center">{mesannonces.CACHE_NB_CANDIDATURES}</div>
+                        <div class="col">{mesannonces.STATUT}</div>
+                        <div class="col">
+                            <div class="dropdown show">
+                                <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Actions
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="#">Ouvrir</a>
+                                <a class="dropdown-item" href="#">Publier</a>
+                                <a class="dropdown-item" href="#">Désactiver</a>
+                                <a class="dropdown-item" href="#">Supprimer</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <hr>
+                        </div>
+                    </div>
+                    <!-- END mesannonces --> 
+                </div>   
+                
+                

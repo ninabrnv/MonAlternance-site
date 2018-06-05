@@ -1,0 +1,18 @@
+Subject: [mon-alternance] Demande de contact : {objet}
+
+Nouvelle demande de contact
+Object : {objet}
+
+Type de compte : {type_compte}
+Prénom : {prenom}
+Nom : {nom}
+Email : {email}
+Téléphone : {tel}
+Ville : {ville}
+
+Commentaire : 
+{contenu}
+
+
+Envoyé depuis le formulaire de contact le {date}
+http://mon-alternance.fr
